@@ -26,10 +26,9 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide scrollbar for IE, Edge, and Firefox */
+/* Hide scrollbar for IE and Edge */
 html {
     -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
 body {
@@ -41,6 +40,7 @@ h1 {
     margin: 0;
     margin-bottom: 5px;
     color: white;
+    -webkit-user-select: none; /* Safari */
     user-select: none;
     font-weight: 400;
     text-align: left; /* Ensure all h1 elements are aligned to the left */
@@ -52,6 +52,7 @@ h2 {
     color: grey;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    -webkit-user-select: none; /* Safari */
     user-select: none;
 }
 
