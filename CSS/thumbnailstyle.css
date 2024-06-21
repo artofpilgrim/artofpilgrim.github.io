@@ -1,9 +1,6 @@
 #thumbnail-container {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(300px, 1fr)
-  ); /* Adjusted min-width */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusted min-width */
   gap: 5px; /* Consistent gap between items */
   box-sizing: border-box;
   width: 100%; /* Ensure it spans the full width */
@@ -30,6 +27,7 @@
   transition: opacity 0.3s;
   background-color: #1e1e1e;
   height: 300px; /* Fixed height */
+  will-change: transform, opacity; /* Add this line for performance */
 }
 
 .thumbnail:hover::before {
@@ -40,11 +38,7 @@
   right: 0;
   bottom: 0;
   transition: opacity 0.5s;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(0, 0, 0, 0.9)
-  );
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9));
   z-index: 1;
 }
 
@@ -93,14 +87,10 @@
   left: 40px; /* Adjust spacing between icons */
 }
 
-
 /* Responsive Design for small screens */
 @media screen and (min-width: 548px) and (max-width: 1280px) {
   #thumbnail-container {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(200px, 1fr)
-    ); /* Adjusted min-width */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted min-width */
   }
   .thumbnail {
     height: 200px;
@@ -109,10 +99,7 @@
 
 @media screen and (min-width: 375px) and (max-width: 667px) {
   #thumbnail-container {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(150px, 1fr)
-    ); /* Adjusted min-width */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusted min-width */
   }
   .thumbnail {
     height: 150px;

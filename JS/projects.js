@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         iframe.src = url;
         iframe.allow = 'autoplay; fullscreen';
         iframe.setAttribute('allowfullscreen', ''); // Ensure allowfullscreen is set correctly
+        iframe.title = 'Marmoset Viewer';
 
         mediaElement.appendChild(iframe);
         return mediaElement;
@@ -138,12 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgElement1 = document.createElement('img');
         imgElement1.src = urls[0];
         imgElement1.className = 'image-1';
+        imgElement1.alt = 'Primary image';
         imgContainer.appendChild(imgElement1);
 
         if (urls[1]) {
             const imgElement2 = document.createElement('img');
             imgElement2.src = urls[1];
             imgElement2.className = 'image-2';
+            imgElement2.alt = 'Secondary image';
             imgContainer.appendChild(imgElement2);
 
             const sliderContainer = document.createElement('div');
@@ -158,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.max = '100';
             slider.value = '50';
             slider.className = 'image-slider';
+            slider.setAttribute('aria-label', 'Image comparison slider');
             slider.addEventListener('input', () => {
                 const value = slider.value;
                 imgElement2.style.clipPath = `inset(0 0 0 ${value}%)`;
@@ -186,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         videoElement.autoplay = true;
         videoElement.loop = true;
         videoElement.muted = true;
+        videoElement.title = 'Video content';
 
         mediaElement.appendChild(videoElement);
         return mediaElement;
@@ -199,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         iframe.src = `https://www.youtube.com/embed/${new URL(url).searchParams.get('v')}`;
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
+        iframe.title = 'YouTube video';
 
         mediaElement.appendChild(iframe);
         return mediaElement;
@@ -213,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         iframe.src = `https://sketchfab.com/models/${sketchfabId}/embed`;
         iframe.allow = 'autoplay; fullscreen; vr';
         iframe.allowFullscreen = true;
+        iframe.title = 'Sketchfab model';
 
         mediaElement.appendChild(iframe);
         return mediaElement;
