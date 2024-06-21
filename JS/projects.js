@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (description.length > 420) {
                 const shortDescription = description.substring(0, 420);
                 descriptionContainer.innerHTML = `${shortDescription}<span id="ellipsis">...</span><span id="full-description" style="display: none;">${description.substring(420)}</span><br><span id="toggle-description">Read More</span>`;
-                
+
                 const toggleDescription = document.getElementById('toggle-description');
                 const fullDescription = document.getElementById('full-description');
                 const ellipsis = document.getElementById('ellipsis');
-                
+
                 toggleDescription.addEventListener('click', () => {
                     const isFullVisible = fullDescription.style.display === 'inline';
                     fullDescription.style.display = isFullVisible ? 'none' : 'inline';
@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const mediaContainer = document.getElementById('project-media');
             const lines = text.split('\n').map(line => line.trim()).filter(line => line && !line.startsWith('#'));
 
+            const fragment = document.createDocumentFragment();
+
             let i = 0;
             while (i < lines.length) {
                 let description = '';
@@ -82,9 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const mediaElement = createMediaElement(urls, description);
-                if (mediaElement) mediaContainer.appendChild(mediaElement);
+                if (mediaElement) fragment.appendChild(mediaElement);
                 i += 1;
             }
+
+            mediaContainer.appendChild(fragment);
         } catch (error) {
             console.error('Error loading project media:', error);
         }
