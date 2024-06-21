@@ -129,3 +129,56 @@ p {
     background-color: #171717;
     color: #f5ba13;
 }
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Adjust the base font size for better readability on small screens */
+    }
+
+    h1 {
+        font-size: 18px; /* Smaller font size for headings on mobile */
+        text-align: center; /* Center align headings for better presentation on mobile */
+    }
+
+    h2 {
+        font-size: 14px; /* Smaller font size for subheadings on mobile */
+        text-align: center; /* Center align subheadings for better presentation on mobile */
+    }
+
+    .top-container {
+        padding-top: 5px;
+        border-bottom: none; /* Remove border for a cleaner look on mobile */
+    }
+
+    .bottom-container {
+        padding: 10px; /* Reduce padding for better fit on mobile */
+        gap: 5px; /* Reduce gap for better fit on mobile */
+    }
+
+    .horizontal-container {
+        width: 90%; /* Increase width to better fit mobile screens */
+        margin: 0 5%; /* Center the container */
+    }
+
+    .panel-title {
+        font-size: 20px; /* Adjust font size for panel titles on mobile */
+        text-align: center; /* Center align panel titles for better presentation on mobile */
+    }
+
+    p {
+        font-size: 14px; /* Adjust font size for paragraphs on mobile */
+        line-height: 1.6; /* Increase line height for better readability on mobile */
+    }
+
+    .navigation-buttons {
+        flex-direction: row; /* Stack navigation buttons vertically on mobile */
+        gap: 0.5rem; /* Adjust gap for better spacing on mobile */
+    }
+
+    .nav-button {
+        font-size: 12px; /* Adjust font size for navigation buttons on mobile */
+        padding: 8px; /* Reduce padding for better fit on mobile */
+        margin-right: 0; /* Remove margin for better fit on mobile */
+        border-radius: .5em .5em 0 0; /* Adjust border radius for better look on mobile */
+    }
+}

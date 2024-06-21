@@ -58,6 +58,7 @@
 }
 
 .production-subpanel h2 {
+    font-size: 20px; /* Font size for the title */
     margin: 5px 0; /* Margins for spacing */
     color: #d7d7d7; /* Text color */
     text-align: left; /* Aligns text to the left */
@@ -69,10 +70,47 @@
     text-align: left; /* Aligns text to the left */
 }
 
-.production-subpanel h2 {
-    font-size: 20px; /* Font size for the title */
-}
-
 .production-subpanel p {
     font-size: 16px; /* Font size for the paragraphs */
+}
+
+@media (max-width: 600px) {
+    .production-subpanel {
+        width: 90%; /* Increase width to better fit mobile screens */
+        margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
+        flex-direction: row; /* Ensure the image and details remain side-by-side */
+        align-items: flex-start; /* Align items to the start */
+        overflow: auto;
+    }
+
+    .production-subpanel img {
+        width: 100px; /* Adjust the image width for mobile */
+        margin-right: 10px; /* Reduce the right margin for better spacing */
+    }
+
+    .production-details {
+        align-items: flex-start; /* Align text to the start */
+        text-align: left; /* Ensure text is aligned to the left */
+        
+    }
+
+    .production-content {
+        align-items: flex-start; /* Align content to the start */
+        text-align: left; /* Ensure text is aligned to the left */
+        
+    }
+
+    .productions-panel {
+        padding: 8px; /* Adjust padding for mobile */
+        margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
+    }
+
+    .production-subpanel h2 {
+        font-size: 18px; /* Adjust font size for mobile */
+    }
+
+    .production-subpanel p {
+        font-size: 14px; /* Adjust font size for mobile */
+        
+    }
 }

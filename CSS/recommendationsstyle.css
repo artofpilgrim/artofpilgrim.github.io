@@ -106,3 +106,48 @@
 .dot.active {
     background-color: #f5ba13;
 }
+
+@media (max-width: 600px) {
+    .recommendation-content {
+        min-height: 450px; /* Adjust the minimum height for mobile */
+        overflow: auto;
+    }
+
+    .recommendation-avatar {
+        width: 60px; /* Smaller avatar size for mobile */
+        height: 60px; /* Smaller avatar size for mobile */
+        margin-right: 10px; /* Adjust margin for better spacing on mobile */
+    }
+
+    .recommendation h2 {
+        font-size: 18px; /* Adjust font size for mobile */
+    }
+
+    .recommendation h3 {
+        font-size: 16px; /* Adjust font size for mobile */
+    }
+
+    .recommendation-date {
+        font-size: 12px; /* Adjust font size for mobile */
+    }
+
+    .recommendation-quote {
+        font-size: 14px; /* Adjust font size for mobile */
+        margin: 5px 0; /* Adjust margin for better spacing on mobile */
+    }
+
+    .recommendations-panel {
+        padding: 8px; /* Adjust padding for mobile */
+        margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
+    }
+
+    .recommendation-dots {
+        bottom: 5px; /* Adjust position for mobile */
+        gap: 3px; /* Adjust gap for better spacing on mobile */
+    }
+
+    .dot {
+        height: 8px; /* Adjust dot size for mobile */
+        width: 8px; /* Adjust dot size for mobile */
+    }
+}
