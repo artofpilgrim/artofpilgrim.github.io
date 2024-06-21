@@ -108,6 +108,7 @@
 }
 
 @media (max-width: 600px) {
+    
     .recommendation-content {
         min-height: 450px; /* Adjust the minimum height for mobile */
         overflow: auto;
@@ -121,6 +122,8 @@
 
     .recommendation h2 {
         font-size: 18px; /* Adjust font size for mobile */
+        display: flex;
+        align-items: center;
     }
 
     .recommendation h3 {
@@ -143,11 +146,11 @@
 
     .recommendation-dots {
         bottom: 5px; /* Adjust position for mobile */
-        gap: 3px; /* Adjust gap for better spacing on mobile */
+        gap: 7px; /* Adjust gap for better spacing on mobile */
     }
 
     .dot {
-        height: 8px; /* Adjust dot size for mobile */
-        width: 8px; /* Adjust dot size for mobile */
+        height: 10px; /* Adjust dot size for mobile */
+        width: 10px; /* Adjust dot size for mobile */
     }
 }
