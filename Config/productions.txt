@@ -2,21 +2,26 @@
 # When you add one then productions.js will automatically add it after saving
 # Format: Title, Company, Time, Thumbnail URL, Description 
 ---
-Name of Production or Title
-Company Name
-2012-present
-https://files.facepunch.com/tom/1b/thumb3.jpg
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. I bet you haven't read this. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. But if you did then you're weird, who does that? Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+Gnomon Instructor
+Gnomon Workshop
+2024-present
+https://files.facepunch.com/tom/1b/gm.jpg
+Coming Soon
 ---
-Name of Production or Title
-Company Name
-2012-present
-https://files.facepunch.com/tom/1b/thumb3.jpg
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. I bet you haven't read this. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. But if you did then you're weird, who does that? Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+Lead Weapon & Prop Artist
+Rust - Facepunch Studios
+2013- present
+https://preview.redd.it/2ijba81ch3s31.png?auto=webp&s=e76b0fa4ae65881e6f802ed75ed1d2b69794473a
+As an Lead Weapon & Prop Aritst for Rust, my role involves overseeing and coordinating the efforts of the Weapons and Props art team. I delegate tasks to artists, provide assistance and feedback on prop, weapon, and other asset artwork, and collaborate with leaders from various departments to ensure seamless coordination. Additionally, I guide junior artists in their development and maintain high-quality standards for all prop, weapon, and vehicle assets..
 ---
-Name of Production or Title
-Company Name
-2012-present
-https://files.facepunch.com/tom/1b/thumb3.jpg
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. I bet you haven't read this. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. But if you did then you're weird, who does that? Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+Lead Weapon & Prop Artist
+S&box - Facepunch Studios
+2023- present
+https://files.facepunch.com/tombutters/1b2211b1/Untitled-1.png
+As an Lead Weapon & Prop Aritst for s&box, my role involves overseeing and coordinating the efforts of the Weapons and Props art team. I delegate tasks to artists, provide assistance and feedback on prop, weapon, and other asset artwork, and collaborate with leaders from various departments to ensure seamless coordination. Additionally, I guide junior artists in their development and maintain high-quality standards for all prop, weapon, and vehicle assets.
 ---
+Garry's Mod
+Facepunch Studios
+2014
+https://thumbnails.pcgamingwiki.com/e/e7/Garry%27s_Mod_Logo.jpg/300px-Garry%27s_Mod_Logo.jpg
+As a 3D artist for Garry's Mod, I created a variety of assets, including characters, clothing and props, and optimized them for in-game use working closely with animators to achieve high quality standard.

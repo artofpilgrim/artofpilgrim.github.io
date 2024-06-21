@@ -31,7 +31,7 @@ function addUserInformation() {
 
             // Create and append the user name as a link
             const userNameLink = document.createElement("a");
-            userNameLink.href = "../../HTML/index.html";
+            userNameLink.href = "../../index.html";
             userNameLink.className = "user-name-link";
 
             const userName = document.createElement("h1");
@@ -67,7 +67,7 @@ function addUserInformation() {
 
             // Define the mapping of keywords to icon classes
             const socialIconMap = {
-                'twitter': "fa-brands fa-x-twitter",
+                'x': "fa-brands fa-x-twitter",
                 'email': "fas fa-envelope",
                 'facebook': "fa-brands fa-square-facebook",
                 'discord': "fa-brands fa-discord",
@@ -98,8 +98,8 @@ function addUserInformation() {
                 let url = social;
 
                 // Detect the type of social link
-                if (social.includes('twitter.com')) {
-                    iconClass = socialIconMap['twitter'];
+                if (social.includes('x.com')) {
+                    iconClass = socialIconMap['x'];
                 } else if (social.includes('facebook.com')) {
                     iconClass = socialIconMap['facebook'];
                 } else if (social.includes('discord.com')) {

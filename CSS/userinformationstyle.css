@@ -24,8 +24,10 @@
 }
 
 .user-info-panel h1 {
+  font-size: 20px;
   font-weight: 400;
   margin-bottom: 5px;
+  color: #edb049;
 }
 
 .profile-pic {

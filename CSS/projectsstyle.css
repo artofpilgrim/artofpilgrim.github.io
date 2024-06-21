@@ -160,8 +160,12 @@ h3 {
 
 #project-media img {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
+  object-fit: contain;
+  margin: auto;
 }
 
 #project-media video {

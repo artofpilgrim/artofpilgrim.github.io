@@ -1,22 +1,47 @@
 .recommendation-content {
-    flex-grow: 1; /* Takes up all available space */
-    position: relative; /* Context for absolute positioning of recommendations */
-    width: 100%; /* Full width of its parent */
-    min-height: 350px; /* Minimum height to ensure space for content */
-    overflow: hidden; /* Keeps all recommendations within the div */
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    overflow: hidden;
 }
 
 .recommendation {
     width: 100%;
-    display: none; /* Hide all initially */
+    display: none;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     transition: opacity 0.5s;
-    position: absolute; /* Allow absolute positioning for sliding effect */
-    top: 0; /* Align at the top inside the relative container */
-    left: 0; /* Align to the left */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.recommendation.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.recommendation-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recommendation-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5em;
+    margin-right: 15px;
+}
+
+.recommendation-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .recommendations-panel {
@@ -26,33 +51,31 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) */
-    text-align: left; /* Align text to the left */
+    align-items: flex-start;
+    text-align: left;
     margin-bottom: 20px;
-}
-
-.recommendation.active {
-    display: flex; /* Only display the active recommendation */
-    opacity: 1;
-    visibility: visible;
 }
 
 .recommendation h2 {
     font-size: 20px;
-    margin: 5px 0;
-    color: #f5ba13;
+    margin: 0;
+    color: #edb049;
 }
 
 .recommendation h3 {
     font-size: 18px;
-    margin: 5px 0;
-    color: #cccccc;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    color: grey;
 }
 
 .recommendation-date {
     font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     margin: 5px 0;
-    color: #999999;
+    color: #444444;
 }
 
 .recommendation-quote {
@@ -64,7 +87,7 @@
 
 .recommendation-dots {
     position: absolute;
-    bottom: 10px; /* Position dots at the bottom */
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

@@ -82,15 +82,17 @@ h2 {
 }
 
 .nav-button {
-  padding: 10px 20px;
+  background-color: inherit;
   border: none;
-  background-color: #121212;
-  color: darkgray;
+  color: grey;
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
   text-decoration: none;
-  border-radius: 5px 5px 0 0;
-  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  border-radius: .9em .9em 0 0;
+  transition: ease 0.5s;
 }
 
 .nav-button.active, .nav-button:hover {
