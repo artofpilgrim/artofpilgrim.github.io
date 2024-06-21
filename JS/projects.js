@@ -364,6 +364,21 @@ document.addEventListener('DOMContentLoaded', () => {
         mediaContainer.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // Keyboard navigation
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            window.location.href = 'index.html';
+        } else if (event.key === 'ArrowLeft') {
+            navigateProjects(-1);
+        } else if (event.key === 'ArrowRight') {
+            navigateProjects(1);
+        } else if (event.key === 'ArrowUp') {
+            mediaContainer.scrollBy({ top: -200, behavior: 'smooth' });
+        } else if (event.key === 'ArrowDown') {
+            mediaContainer.scrollBy({ top: 200, behavior: 'smooth' });
+        }
+    });
+
     // Initialize the app
     const init = async () => {
         projects = await fetchProjects();
