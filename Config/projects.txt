@@ -4,3 +4,4 @@ M24Grenade
 Caboose
 Prototype17
 HatchetPickaxe
+DeepSea

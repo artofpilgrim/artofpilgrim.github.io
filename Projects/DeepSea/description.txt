@@ -1,0 +1,11 @@
+Deep Sea Tool Set - Rust
+---
+A few of the assets I made for the new Deep Sea Update for Rust. I also made the skin for the Assault Rifle but i dont really have many decent shots as it's using the old, old mesh.
+Also contributed to 2 of the 3 tank variations.
+Hope people enjoyed the update!
+---
+Blender, Zbrush, Substance Painter, Marmoset Toolbag, Unity
+---
+https://files.facepunch.com/tom/1b/ZQsBK70kVX.png
+---
+deapsea.html
