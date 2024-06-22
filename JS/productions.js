@@ -21,19 +21,23 @@ function createProductionCard(title, company, time, thumbnail, description) {
     timeElem.textContent = time;
     timeElem.style.fontStyle = "italic"; // Inline style for italic text
 
-    const descElem = document.createElement("p");
-    descElem.textContent = description;
-
     // Append text elements to the detailsDiv
     detailsDiv.appendChild(titleElem);
     detailsDiv.appendChild(companyElem);
     detailsDiv.appendChild(timeElem);
 
+    // Create a new div for the description
+    const descDiv = document.createElement("div");
+    descDiv.classList.add("production-description");
+    const descElem = document.createElement("p");
+    descElem.textContent = description;
+    descDiv.appendChild(descElem);
+
     // Create a container for the details and description
     const contentContainer = document.createElement("div");
     contentContainer.classList.add("production-content");
     contentContainer.appendChild(detailsDiv);
-    contentContainer.appendChild(descElem);
+    contentContainer.appendChild(descDiv);
 
     // Append img and contentContainer to the main card
     card.appendChild(img);

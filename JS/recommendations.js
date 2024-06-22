@@ -59,34 +59,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         const dots = document.querySelectorAll(".dot");
         let currentIndex = 0;
 
-        function showRecommendation(index, direction) {
-            if (window.innerWidth <= 600) {
-                // Mobile transitions
-                recommendationsElements[currentIndex].classList.add('recommendation-exit');
-                recommendationsElements[currentIndex].classList.remove('recommendation-enter');
-                recommendationsElements[index].classList.add('recommendation-enter');
-                recommendationsElements[index].classList.remove('recommendation-exit');
-                
-                setTimeout(() => {
-                    recommendationsElements.forEach((rec, i) => {
-                        rec.classList.toggle("active", i === index);
-                        rec.classList.remove('recommendation-exit', 'recommendation-enter');
-                    });
-                    dots.forEach((dot, i) => {
-                        dot.classList.toggle("active", i === index);
-                    });
-                    currentIndex = index;
-                }, 500); // Match the CSS transition duration
-            } else {
-                // Desktop transitions
-                recommendationsElements.forEach((rec, i) => {
-                    rec.classList.toggle("active", i === index);
-                });
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle("active", i === index);
-                });
-                currentIndex = index;
-            }
+        function showRecommendation(index) {
+            recommendationsElements.forEach((rec, i) => {
+                rec.classList.toggle("active", i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+            currentIndex = index;
         }
 
         dotsContainer.addEventListener("click", (event) => {
@@ -98,13 +78,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Swipe detection
         let startX;
+        let isSwiping = false;
 
         recommendationContent.addEventListener('touchstart', (event) => {
             startX = event.touches[0].clientX;
+            isSwiping = true;
         });
 
         recommendationContent.addEventListener('touchmove', (event) => {
-            if (!startX) return;
+            if (!isSwiping) return;
             const moveX = event.touches[0].clientX;
             const diffX = startX - moveX;
 
@@ -113,14 +95,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (diffX > 0) {
                     // Swiped left
                     newIndex = (currentIndex + 1) % recommendations.length;
-                    showRecommendation(newIndex, 'left');
                 } else {
                     // Swiped right
                     newIndex = (currentIndex - 1 + recommendations.length) % recommendations.length;
-                    showRecommendation(newIndex, 'right');
                 }
-                startX = null;
+                showRecommendation(newIndex);
+                isSwiping = false;
             }
+        });
+
+        recommendationContent.addEventListener('touchend', () => {
+            isSwiping = false;
         });
 
         // Adjust height to ensure dots are always visible

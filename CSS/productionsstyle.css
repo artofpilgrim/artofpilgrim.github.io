@@ -33,6 +33,10 @@
     align-items: flex-start; /* Aligns items to the start */
 }
 
+.production-description {
+    margin-top: 10px; /* Add space between details and description */
+}
+
 .production-content {
     flex-grow: 1; /* Allows the description to take remaining space */
     display: flex;
@@ -78,26 +82,44 @@
     .production-subpanel {
         width: 90%; /* Increase width to better fit mobile screens */
         margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
-        flex-direction: row; /* Ensure the image and details remain side-by-side */
-        align-items: flex-start; /* Align items to the start */
-        overflow: scroll;
+        display: grid; /* Use grid layout */
+        grid-template-columns: auto 1fr; /* Two columns: one for image, one for details */
+        grid-template-rows: auto auto; /* Two rows: one for details, one for description */
+        gap: 10px; /* Space between grid items */
+        align-items: start; /* Align items to the start */
+        padding: 10px; /* Add padding to ensure content has space */
+        background-color: #121212; /* Background color */
+        border-radius: 5px; /* Border radius for rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
     }
 
     .production-subpanel img {
         width: 100px; /* Adjust the image width for mobile */
-        margin-right: 10px; /* Reduce the right margin for better spacing */
+        height: auto; /* Maintain aspect ratio */
+        grid-column: 1; /* Image in the first column */
+        grid-row: 1 / 3; /* Image spans both rows */
+        align-self: start; /* Align image to the start of the cell */
     }
 
     .production-details {
         align-items: flex-start; /* Align text to the start */
         text-align: left; /* Ensure text is aligned to the left */
-        
+        grid-column: 2; /* Details in the second column */
+        grid-row: 1; /* Details in the first row */
+        margin-left: -15px;
+    }
+
+    .production-description {
+        align-items: flex-start; /* Align content to the start */
+        text-align: left; /* Ensure text is aligned to the left */
+        margin-top: 10px; /* Add space between details and description */
+        grid-column: 1 / 3; /* Description spans both columns */
+        grid-row: 2; /* Description in the second row */
+        padding-top: 10px;
     }
 
     .production-content {
-        align-items: flex-start; /* Align content to the start */
-        text-align: left; /* Ensure text is aligned to the left */
-        
+        display: contents; /* Break the content container to allow direct child elements to follow the grid */
     }
 
     .productions-panel {

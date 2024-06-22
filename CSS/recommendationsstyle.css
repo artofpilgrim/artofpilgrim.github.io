@@ -142,9 +142,10 @@
     }
 
     .recommendation-avatar {
-        width: 60px; /* Smaller avatar size for mobile */
-        height: 60px; /* Smaller avatar size for mobile */
+        width: 80px; /* Smaller avatar size for mobile */
+        height: 80px; /* Smaller avatar size for mobile */
         margin-right: 10px; /* Adjust margin for better spacing on mobile */
+        margin-left: 10px;
     }
 
     .recommendation h2 {
@@ -163,7 +164,8 @@
 
     .recommendation-quote {
         font-size: 14px; /* Adjust font size for mobile */
-        margin: 5px 0; /* Adjust margin for better spacing on mobile */
+        padding: 0 10px; /* Adjust margin for better spacing on mobile */
+        
     }
 
     .recommendations-panel {
