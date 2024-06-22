@@ -1,9 +1,12 @@
 .recommendation-content {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     position: relative;
     width: 100%;
     min-height: 350px;
     overflow: hidden;
+    padding-bottom: 40px; /* Add space for the dots */
 }
 
 .recommendation {
@@ -13,7 +16,7 @@
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s ease;
     position: absolute;
     top: 0;
     left: 0;
@@ -108,10 +111,34 @@
 }
 
 @media (max-width: 600px) {
-    
+    .recommendation {
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .recommendation-exit {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    .recommendation-enter {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    .recommendation-enter-active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .recommendation-exit-active {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
     .recommendation-content {
         min-height: 450px; /* Adjust the minimum height for mobile */
         overflow: auto;
+        padding-bottom: 60px; /* Ensure enough space for dots */
     }
 
     .recommendation-avatar {
@@ -145,7 +172,10 @@
     }
 
     .recommendation-dots {
-        bottom: 5px; /* Adjust position for mobile */
+        position: absolute;
+        bottom: 10px; /* Ensure dots are at the bottom */
+        left: 50%;
+        transform: translateX(-50%);
         gap: 7px; /* Adjust gap for better spacing on mobile */
     }
 

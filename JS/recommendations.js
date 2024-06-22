@@ -57,14 +57,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const recommendationsElements = document.querySelectorAll(".recommendation");
         const dots = document.querySelectorAll(".dot");
+        let currentIndex = 0;
 
-        function showRecommendation(index) {
-            recommendationsElements.forEach((rec, i) => {
-                rec.classList.toggle("active", i === index);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle("active", i === index);
-            });
+        function showRecommendation(index, direction) {
+            if (window.innerWidth <= 600) {
+                // Mobile transitions
+                recommendationsElements[currentIndex].classList.add('recommendation-exit');
+                recommendationsElements[currentIndex].classList.remove('recommendation-enter');
+                recommendationsElements[index].classList.add('recommendation-enter');
+                recommendationsElements[index].classList.remove('recommendation-exit');
+                
+                setTimeout(() => {
+                    recommendationsElements.forEach((rec, i) => {
+                        rec.classList.toggle("active", i === index);
+                        rec.classList.remove('recommendation-exit', 'recommendation-enter');
+                    });
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle("active", i === index);
+                    });
+                    currentIndex = index;
+                }, 500); // Match the CSS transition duration
+            } else {
+                // Desktop transitions
+                recommendationsElements.forEach((rec, i) => {
+                    rec.classList.toggle("active", i === index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("active", i === index);
+                });
+                currentIndex = index;
+            }
         }
 
         dotsContainer.addEventListener("click", (event) => {
@@ -73,6 +95,45 @@ document.addEventListener("DOMContentLoaded", async () => {
                 showRecommendation(index);
             }
         });
+
+        // Swipe detection
+        let startX;
+
+        recommendationContent.addEventListener('touchstart', (event) => {
+            startX = event.touches[0].clientX;
+        });
+
+        recommendationContent.addEventListener('touchmove', (event) => {
+            if (!startX) return;
+            const moveX = event.touches[0].clientX;
+            const diffX = startX - moveX;
+
+            if (Math.abs(diffX) > 50) {
+                let newIndex;
+                if (diffX > 0) {
+                    // Swiped left
+                    newIndex = (currentIndex + 1) % recommendations.length;
+                    showRecommendation(newIndex, 'left');
+                } else {
+                    // Swiped right
+                    newIndex = (currentIndex - 1 + recommendations.length) % recommendations.length;
+                    showRecommendation(newIndex, 'right');
+                }
+                startX = null;
+            }
+        });
+
+        // Adjust height to ensure dots are always visible
+        function adjustHeight() {
+            const activeRecommendation = document.querySelector('.recommendation.active');
+            if (activeRecommendation) {
+                const activeHeight = activeRecommendation.getBoundingClientRect().height;
+                recommendationContent.style.minHeight = `${activeHeight + 60}px`; // Add space for dots
+            }
+        }
+
+        window.addEventListener('resize', adjustHeight);
+        adjustHeight(); // Initial call to set height
 
     } catch (error) {
         console.error('Failed to load recommendations:', error);
