@@ -1,0 +1,5 @@
+Triangles: Unknown (There's quite a few items)
+Materials: 5 (For all the various assets here)
+Texture Size: 2048x2048
+Workflow: PBR Metal/Gloss
+Target Engine: Unity

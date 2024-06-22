@@ -1,0 +1,9 @@
+Secretlab Chair - Rust
+---
+I was tasked with coming up with a design for a collaboration piece with Secret Lab; they create a Rust themed chair and we would 'Rustify' one of theirs as an in-game item that would be given if you bought the chair irl. I honestly didn't really know what I was doing when i was creating this. I just experimented and this was the first idea I came up with and it seemed to work nicely. It was also my first proper big asset using blender. It was a really good asset to learn from because it's not 100% hard surface like a weapon but it had a more 'organic' shape to it. There are two versions (only one went in game) that i've included here. The last few images are the initial texture where I had it more beat up and torn which was changed to be a little less worn out so it didn't give players the wrong impression about the real chair. But it is Rust after all. If you want to know about the chair you can find more info here: https://secretlab.co.uk/pages/rust#redeem It was really fun designing this asset for Rust and Secret Lab! p.s sorry for how dark the toolbag viewer is, it's just the way it turned out for some reason!
+---
+Blender, Zbrush, Substance Painter, Marmoset Toolbag, Unity
+---
+https://files.facepunch.com/tom/1b/4VjTa1A2ne.png
+---
+secretlab.html

@@ -1,0 +1,9 @@
+Supply Drop - Rust
+---
+This has been looooong over due. I can't remember when i first made the original supply drop for Rust. But boy, did it need doing! Here's the updated version. I sort of mixed a couple of different types of supply drops together to try and make something a bit unique. Oh, in the 3d viewer - the tarp looks a bit sweaty...ignore that!
+---
+Blender, Zbrush, Substance Painter, Marmoset Toolbag, Unity, Marvelous Designer
+---
+https://files.facepunch.com/tom/1b/610aulLjBH.png
+---
+supplydrop.html

@@ -1,0 +1,9 @@
+Spas 12 Remake - Rust
+---
+I had about a week or so of "free time" in between assigned tasks so i decided to remake the old spas model we were using in Rust. I felt like we needed to have a refresh. So here we are. It was super fun going into a lot of detail on the model, especially on the internal parts and coming to a better understanding how it worked. Sadly, they discontinued the spas model - it's such an iconic weapon.
+---
+Blender, Zbrush, Substance Painter, Marmoset Toolbag, Unity
+---
+https://files.facepunch.com/tom/1b/Ic9hgBQzeP.png
+---
+Spas12.html
