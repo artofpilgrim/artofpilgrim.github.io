@@ -160,12 +160,11 @@
 
     .recommendation-date {
         font-size: 12px; /* Adjust font size for mobile */
+        margin-bottom: -10px;
     }
 
     .recommendation-quote {
-        font-size: 14px; /* Adjust font size for mobile */
-        padding: 0 10px; /* Adjust margin for better spacing on mobile */
-        
+        font-size: 14px; /* Adjust font size for mobile */        
     }
 
     .recommendations-panel {
