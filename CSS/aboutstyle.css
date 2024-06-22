@@ -147,7 +147,7 @@ p {
 
     .top-container {
         padding-top: 5px;
-        border-bottom: none; /* Remove border for a cleaner look on mobile */
+        border-bottom: 1px solid #2e2e2e;
     }
 
     .bottom-container {

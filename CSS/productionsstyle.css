@@ -80,7 +80,7 @@
         margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
         flex-direction: row; /* Ensure the image and details remain side-by-side */
         align-items: flex-start; /* Align items to the start */
-        overflow: auto;
+        overflow: scroll;
     }
 
     .production-subpanel img {
@@ -111,6 +111,5 @@
 
     .production-subpanel p {
         font-size: 14px; /* Adjust font size for mobile */
-        
     }
 }
