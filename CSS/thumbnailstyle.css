@@ -111,7 +111,7 @@
   right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   z-index: 1000; /* Ensure they are above other elements */
 }
 

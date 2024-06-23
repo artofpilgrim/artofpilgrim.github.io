@@ -59,20 +59,38 @@ document.addEventListener("DOMContentLoaded", async () => {
         const dots = document.querySelectorAll(".dot");
         let currentIndex = 0;
 
-        function showRecommendation(index) {
-            recommendationsElements.forEach((rec, i) => {
-                rec.classList.toggle("active", i === index);
-            });
+        function showRecommendation(index, direction) {
+            const current = recommendationsElements[currentIndex];
+            const next = recommendationsElements[index];
+
+            if (direction === 'left') {
+                current.classList.add('recommendation-exit-left');
+                next.classList.add('recommendation-enter-right');
+            } else if (direction === 'right') {
+                current.classList.add('recommendation-exit-right');
+                next.classList.add('recommendation-enter-left');
+            }
+
+            setTimeout(() => {
+                current.classList.remove('active', 'recommendation-exit-left', 'recommendation-exit-right');
+                next.classList.add('active');
+                next.classList.remove('recommendation-enter-left', 'recommendation-enter-right');
+                currentIndex = index;
+            }, 500); // Match the CSS transition duration
+
             dots.forEach((dot, i) => {
                 dot.classList.toggle("active", i === index);
             });
-            currentIndex = index;
         }
 
         dotsContainer.addEventListener("click", (event) => {
             if (event.target.classList.contains('dot')) {
                 const index = parseInt(event.target.dataset.index, 10);
-                showRecommendation(index);
+                if (index > currentIndex) {
+                    showRecommendation(index, 'left');
+                } else if (index < currentIndex) {
+                    showRecommendation(index, 'right');
+                }
             }
         });
 
@@ -95,11 +113,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (diffX > 0) {
                     // Swiped left
                     newIndex = (currentIndex + 1) % recommendations.length;
+                    showRecommendation(newIndex, 'left');
                 } else {
                     // Swiped right
                     newIndex = (currentIndex - 1 + recommendations.length) % recommendations.length;
+                    showRecommendation(newIndex, 'right');
                 }
-                showRecommendation(newIndex);
                 isSwiping = false;
             }
         });
