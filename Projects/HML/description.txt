@@ -1,0 +1,10 @@
+Homing Missile Launcher - Rust
+---
+The home made homing missile launcher for Rust. Quite a fun one to make, the concept by Paul Bradley was awesome.
+Bonus: I also made the attack heli, the weapon racks and the launcher ammo in the video/update!
+---
+Blender, Zbrush, Marmoset Toolbag, Unity, Substance Painter, Marvelous Designer
+---
+https://i.postimg.cc/25PC4CBZ/image.png
+---
+hml.html
