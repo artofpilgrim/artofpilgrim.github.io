@@ -128,7 +128,7 @@ h2 {
 
   .main-container {
       overflow-y: auto; /* Ensure main container scrolls if necessary */
-      padding: 10px; /* Add padding for better spacing on mobile */
+     padding-top: 5px;/* Add padding for better spacing on mobile */
   }
 
   .top-container {
