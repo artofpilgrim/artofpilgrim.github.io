@@ -215,17 +215,6 @@
 
     .recommendations-panel {
         padding: 8px; /* Adjust padding for mobile */
-        margin-bottom: 15px; /* Adjust margin for better spacing on mobile */
-    }
-
-    .recommendation-dots {
-        display: flex;
-        justify-content: center; /* Center the dots */
-        position: absolute; /* Make dots positioned absolutely */
-        bottom: 10px; /* Place dots at the bottom */
-        left: 50%;
-        transform: translateX(-50%);
-        gap: 7px; /* Adjust gap for better spacing on mobile */
     }
 
     .dot {
