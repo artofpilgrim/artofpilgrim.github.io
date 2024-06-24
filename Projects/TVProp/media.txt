@@ -1,5 +1,7 @@
+turntable_before.webm 
+turntable_after.webm
 https://files.facepunch.com/tom/1b/QRs9qXgNXq.jpg
 https://files.facepunch.com/tom/1b/vKUesas4Y6.jpg
-https://files.facepunch.com/tom/1b/7WWNypvd2E.jpg
+back_before.jpg // back_after.jpg
 https://files.facepunch.com/tom/1b/8TH6LJM9fj.jpg
 https://files.facepunch.com/tom/1b/YbpCwpUG4U.jpg
