@@ -1,0 +1,71 @@
+PureRef Tips
+---
+I've been using PureRef for a long time now - it's absolutely essential in my workflow and I wanted to share some tips that i've picked up along the way that can really help and improve your experience using it - because the rabbit hole goes deeper than you might think.
+
+## Colour Picker
+
+Yes, you read that correctly. PureRef has a built-in colour picker giving you not only the Hex value but also RGB and HSV values too. You can easily copy the Hex value by the copy icon next to it!
+
+https://files.facepunch.com/tombutters/1b0111b1/colourpick.gif
+
+To use this feature simply hit LMB + S or hold S down and then left click (much more intuitive) and select any part of the image to sample.
+
+Pro-Tip: Whilst holding down S and LMB to sample, you can drag your cursor anywhere on your screen to sample colour values. Yes. Go try it now!
+
+## Crop Images
+
+I've found this to be one of my most used functions from within PureRef. Being able to crop out the unnecessary parts of an image helps you to focus on parts that are essential to your board.
+
+https://files.facepunch.com/tombutters/1b0111b1/PureRefCrop.gif
+
+To use this feature simply hit LMB + C and drag around the area you want the image to crop. Again, this works in reverse which feels way more natural; holding down C and then hitting left mouse button to crop the region.
+
+## Pan + Zoom Crop Images
+
+There is another method to effectively crop an image and that is to pan and zoom in/out whilst retaining the boarder of the selected image, allowing you to keep the original dimensions of the copy/pasted image.
+
+https://files.facepunch.com/tombutters/1b0111b1/panzoomcrop.gif
+
+To use this feature simply hit Shift+V and hold LMB to zoom in or out.
+
+And to pan, simply hold V and drag around with LMB!
+
+## Transparent Canvas
+
+Sometimes, the canvas can get in the way of things, especially if you don't have a lot of screenspace to work with. Maximising your viewport then can be essential to a smooth modelling experience. One neat thing you can do with PureRef is whilst modelling assets, instead of having the canvas get in the way of your viewport space to make the canvas transparent - leaving only the important stuff in view - the images:
+
+https://files.facepunch.com/tombutters/1b0111b1/transparent.gif
+
+To use this feature simply hit ALT+3 which will set your canvas background to transparent.
+
+## Transparent Images
+
+Wouldn't it be wonderful if you could make all of your images semi-transparent too so you can model directly behind the references?? Well you can! Not only that but you can lock PureRef so you can't accidentally press on it:
+
+https://files.facepunch.com/tombutters/1b0111b1/PureRefOverlay.mp4
+
+To use this feature simply hit ALT+3 which will set your canvas background to transparent.
+
+Then you want to hit CTRL+T to lock PureRef from accepting mouse input, allowing you to click through to your modelling app.
+
+You can then change the opacity of the images incrementally by using CTRL+ -/+ on the numpad!
+
+## Import via URL
+
+This is a weird one, i accidentally came across this when trying to save the url for a selection of photo refs i found. Instead of pasting the text like you'd expect i found it had pulled every image from the site i was looking at and neatly organised them for me...wild. Unfortunately, it will pull icons from the website too. And on top of that, it might not work in all places, which might be a good thing.
+
+https://files.facepunch.com/tombutters/1b0111b1/PureRefURLcopy.mp4
+
+To use this feature simply copy a website URL and paste it into canvas of your PureRef Board and watch the magic happen!
+
+## Find Image Source
+
+Numerous times, I've looked at an image I've pasted into my PureRef and wanted to find the source of the image. I often wish to explore the site further and find more related images. Usually, reverse image searching can be a bit of a hassle, but fortunately, the clever folks at PureRef have added functionality that embeds URL information into the image data when pasted. This feature, which can be turned off, allows you to return to the source so you can easily find the parent site:
+
+https://files.facepunch.com/tombutters/1b0111b1/PureRefReturn2Source.mp4
+
+To use this feature simply select an image and hit CTRL+O (not zero) and you'll see it take you back to the url page, allowing you see exactly where it's come from!
+
+At the moment, that's all i have for now but if there's more i'll update here when i can!
+
+Peace out, and God bless dudes and dudettes.

@@ -1,0 +1,21 @@
+Working with Blueprints/Concepts in Blender
+---
+A really nice way to work with blueprints within Blender is toggling off 'Show in Perspective' in the references Object Properties tab. That way the blueprints only show in orthographic views instead, allowing you to focus on the model whilst in perspective mode. 
+
+https://files.facepunch.com/tom/1b/Blender%202024-03-07%2021-01-36.mp4
+
+## Easy Import
+
+One of the simplest ways to bring in blueprints and to have this option available to you is to first go into your side/top view and then drag the image directly into the viewport.
+
+https://files.facepunch.com/tom/1b/blueprints%20drag.mp4
+
+I'm sure there's better ways of doing this that aligns everything but if you work from concept like I do most of the time with only a single side view, this method works great. 
+
+## Opacity
+
+You can also enable Opacity and configure it to your own liking too. Great if it's a bit too bright for those peepers 👀! 
+
+https://files.facepunch.com/tom/1b/Opacity.mp4
+
+Enjoy!

@@ -1,0 +1,14 @@
+Baking LODs
+---
+Hey everyone! This is a random tutorial but it's something i've wanted to do a video on for a while. This is a process that I've found valuable in multiple scenarios. Whether it's baking down LODs to reduce draw calls, making world models from view models assets that have multiple UV sets to combining a load of assets into a single UV Set. The amount of materials you can bake down with this method is really up to you.
+
+https://www.youtube.com/watch?v=EW_54ffYxt4
+
+This is a super easy way leveraging Marmoset Toolbags incredibly fast baker!  If you want to bake down the AO map from the original to the new mesh, all you have to do is apply the AO map into the albedo slot and enable the normal Albedo output map in the map configurator. Make sure to rename the suffix to something like "_ao".
+
+Originally, I created a twitter thread about the process but it's just a bunch of pictures, hence the new video on the subject.
+https://files.facepunch.com/tombutters/1b2311b1/12801174ImperialeagleDependent.png
+
+You can see how well it works here when done on a lower lod mesh. The original had about 5 materials with the LOD 3 only having 1, saving on quite a few draw calls.
+
+Anyway, I hope this is helpful in some way! I know it's saved my butt a fair few times. Peace!
