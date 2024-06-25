@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
-    const configFilePath = '../Config/articles.txt'; // Path to the articles list file
-    const articlesFolder = '../Articles'; // Folder containing all the articles
+    const configFilePath = './Config/articles.txt'; // Path to the articles list file
+    const articlesFolder = './Articles'; // Folder containing all the articles
     const leftColumn = document.querySelector('.left-column');
     const rightColumn = document.querySelector('.right-column');
     const topContainer = document.querySelector('.top-container'); // Select the top container
@@ -10,12 +10,18 @@ document.addEventListener("DOMContentLoaded", async function() {
     const loadArticles = async () => {
         try {
             const response = await fetch(configFilePath);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const text = await response.text();
             const folders = text.split('\n').map(folder => folder.trim()).filter(folder => folder);
 
             for (const folder of folders) {
                 try {
                     const response = await fetch(`${articlesFolder}/${folder}/article.txt`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
                     const articleData = await response.text();
                     const [title, content] = parseArticleData(articleData);
                     const readingTime = calculateReadingTime(content);
