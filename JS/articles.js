@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
-    const configFilePath = 'Config/articles.txt'; // Path to the articles list file
-    const articlesFolder = 'Articles'; // Folder containing all the articles
+    const configFilePath = '../Config/articles.txt'; // Path to the articles list file
+    const articlesFolder = '../Articles'; // Folder containing all the articles
     const leftColumn = document.querySelector('.left-column');
     const rightColumn = document.querySelector('.right-column');
     const topContainer = document.querySelector('.top-container'); // Select the top container
