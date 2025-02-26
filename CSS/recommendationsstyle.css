@@ -1,44 +1,78 @@
+:root {
+    --bg-dark: #121212;
+    --text-muted: grey;
+    --text-dark: #444444;
+    --accent: #edb049; /* Consistent accent color */
+    --dot-inactive: #e0e0e0;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+}
+
 .recommendation-content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     position: relative;
     width: 100%;
-    min-height: 350px;
+    padding-bottom: 60px; /* Space for dots, managed by JS for min-height */
     overflow: hidden;
 }
 
 .recommendation {
-    width: 100%;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-    transition: opacity 0.5s ease, transform 0.5s ease;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: transform, opacity;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .recommendation.active {
     display: flex;
-    opacity: 1;
-    visibility: visible;
     position: relative;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.recommendation-exit-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.recommendation-enter-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.recommendation-exit-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.recommendation-enter-left {
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
 .recommendation-header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
 }
 
 .recommendation-avatar {
     width: 80px;
     height: 80px;
     border-radius: 0.5em;
-    margin-right: 15px;
+    margin-right: var(--spacing-md);
 }
 
 .recommendation-details {
@@ -48,9 +82,9 @@
 }
 
 .recommendations-panel {
-    background-color: #121212;
+    background-color: var(--bg-dark);
     border-radius: 5px;
-    padding: 10px;
+    padding: var(--spacing-sm);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -62,7 +96,8 @@
 .recommendation h2 {
     font-size: 20px;
     margin: 0;
-    color: #edb049;
+    color: var(--accent);
+    font-family: 'Poppins', sans-serif;
 }
 
 .recommendation h3 {
@@ -70,7 +105,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     margin: 0;
-    color: grey;
+    color: var(--text-muted);
 }
 
 .recommendation-date {
@@ -78,147 +113,97 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     margin: 5px 0;
-    color: #444444;
+    color: var(--text-dark);
 }
 
 .recommendation-quote {
     font-size: 16px;
-    margin: 10px 0;
-    color: grey;
+    margin: var(--spacing-sm) 0;
+    color: var(--text-muted);
     line-height: 1.5;
 }
 
 .recommendation-dots {
     display: flex;
-    gap: 10px;
-    padding: 10px;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    justify-content: center;
 }
 
 .dot {
     height: 10px;
     width: 10px;
-    background-color: #e0e0e0;
+    background-color: var(--dot-inactive);
     border-radius: 50%;
-    display: inline-block;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .dot.active {
-    background-color: #f5ba13;
+    background-color: var(--accent);
 }
 
+.dot:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .recommendation {
+        transition: none;
+    }
+    .recommendation-exit-left, .recommendation-enter-right,
+    .recommendation-exit-right, .recommendation-enter-left {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
 @media (max-width: 600px) {
     .recommendation-content {
-        display: flex;
-        flex-direction: column;
         justify-content: flex-start;
-        min-height: 450px; /* Adjust the minimum height for mobile */
-        position: relative; /* Add relative positioning */
-        padding-bottom: 60px; /* Ensure enough space for dots */
+        padding-bottom: 60px; /* Ensure dot space */
     }
 
     .recommendation {
-        transition: transform 0.5s ease, opacity 0.5s ease;
-        flex-grow: 1;
-        margin-bottom: 60px; /* Add margin to create space for dots */
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-    }
-
-    .recommendation-enter-left {
-        animation: slideInFromLeft 0.5s forwards;
-    }
-
-    .recommendation-exit-left {
-        animation: slideOutToLeft 0.5s forwards;
-    }
-
-    .recommendation-enter-right {
-        animation: slideInFromRight 0.5s forwards;
-    }
-
-    .recommendation-exit-right {
-        animation: slideOutToRight 0.5s forwards;
-    }
-
-    @keyframes slideInFromLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes slideOutToLeft {
-        from {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        to {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-    }
-
-    @keyframes slideInFromRight {
-        from {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes slideOutToRight {
-        from {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        to {
-            opacity: 0;
-            transform: translateX(100%);
-        }
+        margin-bottom: 60px; /* Space for dots */
     }
 
     .recommendation-avatar {
-        width: 80px; /* Smaller avatar size for mobile */
-        height: 80px; /* Smaller avatar size for mobile */
-        margin-right: 10px; /* Adjust margin for better spacing on mobile */
-        margin-left: 10px;
+        width: 80px;
+        height: 80px;
+        margin-right: var(--spacing-sm);
+        margin-left: var(--spacing-sm);
     }
 
     .recommendation h2 {
-        font-size: 18px; /* Adjust font size for mobile */
+        font-size: 18px;
         display: flex;
         align-items: center;
     }
 
     .recommendation h3 {
-        font-size: 16px; /* Adjust font size for mobile */
+        font-size: 16px;
     }
 
     .recommendation-date {
-        font-size: 12px; /* Adjust font size for mobile */
+        font-size: 12px;
         margin-bottom: -10px;
     }
 
     .recommendation-quote {
-        font-size: 14px; /* Adjust font size for mobile */        
+        font-size: 14px;
     }
 
     .recommendations-panel {
-        padding: 8px; /* Adjust padding for mobile */
+        padding: 8px;
     }
 
     .dot {
-        height: 10px; /* Adjust dot size for mobile */
-        width: 10px; /* Adjust dot size for mobile */
+        height: 10px;
+        width: 10px;
     }
 }

@@ -17,6 +17,31 @@ body {
   margin: 0;
 }
 
+.full-description {
+  display: none;
+}
+.full-description.visible {
+  display: inline;
+}
+#toggle-description {
+  cursor: pointer;
+  color: #edb049;
+  text-decoration: underline;
+}
+#toggle-description:focus {
+  outline: 2px solid #edb049;
+  outline-offset: 2px;
+}
+.tooltip {
+  display: none;
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  z-index: 10;
+}
+
 /* Main Container Styling */
 .container {
   display: flex;
