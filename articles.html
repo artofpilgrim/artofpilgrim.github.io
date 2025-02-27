@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Article - Art of Pilgrim</title>
-    <link rel="stylesheet" href="../CSS/articlemainstyle.css?v=1.0" />
-    <link rel="stylesheet" href="../CSS/userinformationstyle.css" />
-    <link rel="stylesheet" href="../CSS/articlepost.css?v=1.0" />
-    <link rel="stylesheet" href="../CSS/articleb2t.css?v=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css?v=1.0" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Articles by Art of Pilgrim">
+    <title>Articles - Art of Pilgrim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    <link rel="stylesheet" href="../CSS/indexstyle.css?v=1.0" /> <!-- For top-container and nav -->
+    <link rel="stylesheet" href="../CSS/userinformationstyle.css?v=1.0" /> <!-- For user-info-panel -->
+    <link rel="stylesheet" href="../CSS/articles.css?v=1.0" /> <!-- New blog-specific CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css?v=1.0" />
     <link rel="icon" href="../../Resources/favicon/pilfav.png" type="image/png" />
 </head>
-
 <body>
     <div class="main-container">
         <div class="top-container">
@@ -23,27 +24,17 @@
                 <!-- User Information Here -->
             </div>
             <div class="navigation-buttons">
-                <a href="index.html" class="nav-button" id="nav-portfolio">Portfolio</a>
-                <a href="articles.html" class="nav-button" id="nav-articles">Articles</a>
-                <a href="about.html" class="nav-button" id="nav-about">About</a>
+                <a href="index.html" class="nav-button" id="nav-portfolio" role="menuitem">Portfolio</a>
+                <a href="articles.html" class="nav-button" id="nav-articles" role="menuitem">Articles</a>
+                <a href="about.html" class="nav-button" id="nav-about" role="menuitem">About</a>
             </div>
         </div>
-        <div class="bottom-container">
-            <div class="left-column">
-                <!-- Article Thumbnails will be inserted here -->
-            </div>
-            <div class="right-column">
-                <!-- Article content will be dynamically inserted here -->
-                <div id="back-to-top" class="back-to-top-button">Back to Top</div>
-            </div>
-        </div>
+        <div class="articles-container"></div>
     </div>
-
-    <!-- Link to the external JavaScript files -->
-    <script src="../JS/userinformation.js?v=1.0"></script>
-    <script src="../JS/articles.js?v=1.0"></script>
+    <button id="back-to-top" style="display: none;">Back to Top</button>
+    <script src="../JS/userinformation.js?v=1.0" defer></script>
+    <script src="../JS/articles.js?v=1.0" defer></script>
     <script>
-        // JavaScript to add 'active' class to the current page's navigation button
         document.addEventListener("DOMContentLoaded", function () {
             const currentPath = window.location.pathname.split("/").pop();
             const navButtons = document.querySelectorAll(".nav-button");
@@ -55,5 +46,4 @@
         });
     </script>
 </body>
-
 </html>

@@ -1,3 +1,17 @@
+:root {
+    --font-primary: 'Montserrat', 'Arial', sans-serif;
+    --font-secondary: 'Poppins', 'Helvetica', sans-serif;
+    --bg-dark: #121212;
+    --bg-medium: #151515;
+    --bg-light: #171717;
+    --text-light: #d7d7d7;
+    --text-muted: grey;
+    --accent: #edb049;
+    --border: #2e2e2e;
+    --spacing-sm: 5px;
+    --spacing-md: 10px;
+}
+
 /* Basic reset for margin and padding */
 html, body {
     margin: 0;
@@ -56,14 +70,23 @@ h2 {
     user-select: none;
 }
 
+
 .top-container {
-    flex: 0 0 auto; /* Adjust the height as needed */
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
     align-items: center;
-    padding-top: 10px;
-    border-bottom: 1px solid #2e2e2e;
+    padding-top: var(--spacing-md);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--border);
+    transition: padding-top 0.3s ease;
+}
+
+.top-container.shrink {
+    padding-top: var(--spacing-sm);
 }
 
 hr {
@@ -106,28 +129,32 @@ p {
 
 .navigation-buttons {
     display: flex;
-    gap: 1rem;
-    justify-content: center; /* Ensure buttons are centered */
-    padding-bottom: 0; /* No padding at the bottom */
+    
+    justify-content: center;
+    padding-bottom: 0;
 }
+
 
 .nav-button {
     background-color: inherit;
     border: none;
-    color: grey;
-    font-family: 'Poppins', sans-serif;
+    color: var(--text-muted);
+    font-family: var(--font-secondary);
     text-decoration: none;
     cursor: pointer;
-    padding: 10px;
-    margin-right: 10px;
+    padding: var(--spacing-md);
+    margin-right: var(--spacing-md);
     font-size: 14px;
-    border-radius: .9em .9em 0 0;
-    transition: ease 0.5s;
+    border-radius: 0.9em 0.9em 0 0;
+    will-change: background-color, color;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.nav-button.active, .nav-button:hover {
-    background-color: #171717;
-    color: #f5ba13;
+
+.nav-button:hover,
+.nav-button.active {
+    background-color: var(--bg-light);
+    color: var(--accent);
 }
 
 @media (max-width: 600px) {
@@ -171,14 +198,17 @@ p {
     }
 
     .navigation-buttons {
-        flex-direction: row; /* Stack navigation buttons vertically on mobile */
-        gap: 0.5rem; /* Adjust gap for better spacing on mobile */
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .nav-button {
-        font-size: 12px; /* Adjust font size for navigation buttons on mobile */
-        padding: 8px; /* Reduce padding for better fit on mobile */
-        margin-right: 0; /* Remove margin for better fit on mobile */
-        border-radius: .5em .5em 0 0; /* Adjust border radius for better look on mobile */
+        font-size: 12px;
+        padding: 8px;
+        margin-right: 0;
+        border-radius: 0.5em 0.5em 0 0;
+        width: 100%;
+        text-align: center;
     }
 }
