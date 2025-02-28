@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         articlesFolder: '../Articles',
         cacheVersion: 'v1',
         snippetLength: 150,
-        defaultThumbnail: '../Resources/default-video-thumbnail.jpg' // Add a default video thumbnail image
+        defaultThumbnail: '../Resources/default-video-thumbnail.jpg' // Ensure this exists
     };
 
     const mainContainer = document.querySelector('.main-container');
@@ -119,9 +119,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         card.dataset.folder = folder;
 
         const snippet = getSnippet(content);
+        const thumbnailUrl = thumbnail || config.defaultThumbnail; // Use default if no thumbnail
         card.innerHTML = `
             <div class="article-preview">
-                ${thumbnail ? `<img src="${thumbnail}" alt="${title} thumbnail" class="article-thumbnail" loading="lazy">` : '<div class="article-thumbnail-placeholder"></div>'}
+                <img src="${thumbnailUrl}" alt="${title} thumbnail" class="article-thumbnail" loading="lazy" onerror="this.src='${config.defaultThumbnail}'">
                 <div class="article-text">
                     <h2 class="article-title">${title}</h2>
                     <p class="article-snippet">${formatContent(snippet)}</p>
@@ -129,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </div>
         `;
-        console.log(`Created card for ${folder}`);
+        console.log(`Created card for ${folder} with thumbnail: ${thumbnailUrl}`);
         return card;
     };
 
@@ -154,16 +155,26 @@ document.addEventListener("DOMContentLoaded", async () => {
             const urlMatch = line.match(/(https?:\/\/[^\s]+)/);
             if (urlMatch) {
                 const url = urlMatch[0];
-                if (url.match(/\.(gif|jpg|jpeg|png)$/)) return url;
-                if (url.match(/\.(mp4)$/)) return config.defaultThumbnail; // Use placeholder for MP4
+                console.log(`Found media URL in ${url}`);
+                if (url.match(/\.(gif|jpg|jpeg|png)$/)) {
+                    console.log(`Using image thumbnail: ${url}`);
+                    return url;
+                }
+                if (url.match(/\.(mp4)$/)) {
+                    console.log(`Using default thumbnail for MP4: ${config.defaultThumbnail}`);
+                    return config.defaultThumbnail;
+                }
                 if (url.match(/(youtube\.com|youtu\.be)/)) {
                     let videoId = url.split('v=')[1] || url.split('youtu.be/')[1];
                     if (videoId?.includes('&')) videoId = videoId.split('&')[0];
-                    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                    const youtubeThumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                    console.log(`Using YouTube thumbnail: ${youtubeThumb}`);
+                    return youtubeThumb;
                 }
             }
         }
-        return config.defaultThumbnail; // Fallback if no media
+        console.log(`No media found, using default thumbnail: ${config.defaultThumbnail}`);
+        return config.defaultThumbnail;
     };
 
     const showFullArticle = async (folder) => {
