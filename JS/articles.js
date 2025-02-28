@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         card.tabIndex = 0;
         card.dataset.slug = slug;
 
-        const snippet = getSnippet(content); // Use first bit of content for snippet
+        const snippet = getSnippet(content);
         const thumbnailUrl = thumbnail || config.defaultThumbnail;
 
         card.innerHTML = `
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <img src="${thumbnailUrl}" alt="${title} thumbnail" class="article-thumbnail" loading="lazy" onerror="this.src='${config.defaultThumbnail}'">
                 <div class="article-text">
                     <h2 class="article-title">${title}</h2>
-                    <p class="article-snippet">${snippet}</p>
+                    <p class="article-snippet">${formatContent(snippet)}</p>
                     <p class="article-info">
                         <span class="published">Published: ${date}</span>
                         <span class="reading-time">Reading Time: ${readingTime} minutes</span>
@@ -156,7 +156,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             const lines = paragraph.split('\n').map(line => line.trim());
             lines.forEach(line => {
                 if (line.startsWith('* ')) {
-                    listItems.push(`<li>${line.slice(2)}</li>`);
+                    const itemText = line.slice(2);
+                    listItems.push(`<li>${processLine(itemText)}</li>`);
                     inList = true;
                 } else {
                     if (inList && listItems.length) {
@@ -164,9 +165,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         listItems = [];
                         inList = false;
                     }
-                    if (line.startsWith('## ')) output += `<h2>${line.slice(3)}</h2>`;
-                    else if (line.startsWith('# ')) output += `<h1>${line.slice(2)}</h1>`;
-                    else if (line) output += `<p>${line}</p>`;
+                    const formattedLine = processLine(line);
+                    if (formattedLine) output += `<p>${formattedLine}</p>`;
                 }
             });
             if (inList && listItems.length) {
@@ -176,6 +176,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         });
         return output;
+    };
+
+    const processLine = (line) => {
+        if (!line) return '';
+        if (line.startsWith('## ')) return `<h2>${line.slice(3)}</h2>`;
+        if (line.startsWith('# ')) return `<h1>${line.slice(2)}</h1>`;
+        if (line.match(/(https?:\/\/[^\s]+)/g)) {
+            return line.replace(/(https?:\/\/[^\s]+)/g, (url) => {
+                if (url.match(/\.(mp4)$/)) return `<video controls><source src="${url}" type="video/mp4"></video>`;
+                if (url.match(/\.(gif|jpg|jpeg|png)$/)) return `<img src="${url}" alt="Article image" loading="lazy" />`;
+                if (url.match(/(youtube\.com|youtu\.be)/)) {
+                    let videoId = url.split('v=')[1] || url.split('youtu.be/')[1];
+                    if (videoId?.includes('&')) videoId = videoId.split('&')[0];
+                    return `<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                }
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+            });
+        }
+        return line;
     };
 
     backToTopButton.addEventListener('click', () => {
