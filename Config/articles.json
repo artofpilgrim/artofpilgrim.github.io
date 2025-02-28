@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "BakingLods",
+    "title": "Baking LODs",
+    "thumbnail": "https://www.youtube.com/watch?v=EW_54ffYxt4",
+    "date": "2023-01-23",
+    "tags": [
+      "3d",
+      "optimization"
+    ]
+  },
+  {
+    "slug": "BlueprintsBlender",
+    "title": "Working with Blueprints/Concepts in Blender",
+    "thumbnail": "../Resources/default-video-thumbnail.jpg",
+    "date": "2024-03-07",
+    "tags": [
+      "blender",
+      "tutorial"
+    ]
+  },
+  {
+    "slug": "Marmoset Bakes to Substance",
+    "title": "Marmoset Baked Textures to Substance Painter",
+    "thumbnail": "https://files.facepunch.com/tom/1b/what%20a%20pain%2C%20right_.gif",
+    "date": "2025-02-28",
+    "tags": [
+      "general"
+    ]
+  },
+  {
+    "slug": "Marmoset Bakes to Substance copy",
+    "title": "Marmoset Baked Textures to Substance Painter",
+    "thumbnail": "https://files.facepunch.com/tom/1b/what%20a%20pain%2C%20right_.gif",
+    "date": "2025-02-28",
+    "tags": [
+      "general"
+    ]
+  },
+  {
+    "slug": "PureRef",
+    "title": "PureRef Tips",
+    "thumbnail": "https://files.facepunch.com/tombutters/1b0111b1/colourpick.gif",
+    "date": "2024-03-14",
+    "tags": [
+      "tools",
+      "reference"
+    ]
+  }
+]

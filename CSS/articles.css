@@ -10,34 +10,55 @@
     --spacing-md: 10px;
     --spacing-lg: 20px;
     --spacing-xl: 40px;
-    --card-gap: 32px;
+    --card-gap: 16px;
     --font-primary: 'Montserrat', 'Arial', sans-serif;
     --font-secondary: 'Poppins', 'Helvetica', sans-serif;
 }
 
-/* Scrollbar Styling */
-.articles-container::-webkit-scrollbar {
-    width: 8px;
+/* Ensure full page scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
-.articles-container::-webkit-scrollbar-track {
-    background: none;
+
+/* Remove body scrollbar when not needed */
+body {
+    overflow-y: auto; /* Enable page scrolling */
 }
-.articles-container::-webkit-scrollbar-thumb {
-    background-color: #222222;
-    border-radius: 4px;
+
+.article-content ul {
+    list-style-type: disc; /* Default bullet style */
+    padding-left: var(--spacing-lg); /* Indent list */
+    margin: var(--spacing-lg) 0; /* Spacing above and below */
+    color: var(--text-light);
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    line-height: 1.8;
 }
-.articles-container::-webkit-scrollbar-thumb:hover {
-    background-color: #333333;
+
+.article-content li {
+    margin-bottom: var(--spacing-sm); /* Space between bullets */
+}
+
+.article-content li a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.article-content li a:hover {
+    text-decoration: underline;
 }
 
 /* Articles Container */
 .articles-container {
     flex: 1;
-    max-width: 85%;
+    max-width: 95%;
     margin: var(--spacing-sm) auto;
     padding: var(--spacing-lg);
-    overflow-y: auto;
     background-color: var(--bg-dark);
+    /* Remove overflow-y: auto to let body scroll */
 }
 
 /* List View */
@@ -57,38 +78,30 @@
 /* Article Card (List View) */
 .articles-container.list-view .article-card {
     background: #181818;
-    border-radius: 8px;
+    border-radius: .25em;
     padding: var(--spacing-lg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease, background-color 0.3s ease;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     margin: 0;
     display: flex;
     gap: var(--spacing-md);
+    cursor: pointer;
 }
 
 .articles-container.list-view .article-card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    background-color: #1c1c1c; /* Subtle hover highlight */
-}
-
-.article-info::before {
-    content: '\f017'; /* Font Awesome clock */
-    font-family: 'Font Awesome 6 Free';
-    margin-right: var(--spacing-sm);
-    color: var(--accent);
+    
+    background-color: #1c1c1c;
 }
 
 .article-preview {
     display: flex;
     gap: var(--spacing-lg);
     width: 100%;
-    align-items: center; /* Better alignment with thumbnail */
+    align-items: center;
 }
 
 .article-thumbnail {
-    width: 140px; /* Slightly larger for impact */
+    width: 140px;
     height: 90px;
     object-fit: cover;
     border-radius: 5px;
@@ -96,12 +109,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Full Article View */
-.article-full-view {
-    background: #181818;
-    border-radius: 8px;
-    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
-    animation: slideUp 0.5s ease forwards;
+.article-text {
+    flex: 1;
 }
 
 .article-title {
@@ -111,24 +120,73 @@
     margin: 0 0 var(--spacing-sm);
 }
 
-.article-info {
-    font-size: 14px; /* Slightly larger for prominence */
-    font-weight: 500; /* Medium weight for emphasis */
-    color: var(--accent); /* Accent color #edb049 */
-    font-style: normal; /* Remove italic for a cleaner look */
-    margin: 0;
-    padding: var(--spacing-sm) 0 0; /* Small top padding for separation */
-}
-
-.article-text {
-    flex: 1;
-}
-
 .article-snippet {
     font-size: 14px;
     color: var(--text-muted);
     line-height: 1.5;
     margin: 0 0 var(--spacing-sm);
+}
+
+/* Article Info with Metadata */
+.article-info {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+    font-style: normal;
+    margin: 0;
+    padding: var(--spacing-sm) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+/* Specific Metadata Parts */
+.article-info .published,
+.article-info .reading-time,
+.article-info .tags {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.article-info .published {
+    color: var(--text-muted);
+}
+
+.article-info .reading-time {
+    color: var(--accent);
+}
+
+.article-info .reading-time::before {
+    content: '\f017'; /* Font Awesome clock */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent);
+    margin-right: var(--spacing-sm);
+}
+
+.article-info .tags {
+    color: var(--text-muted);
+}
+
+.article-info .tags span {
+    background: var(--bg-light);
+    color: var(--text-muted);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: var(--spacing-sm);
+}
+
+/* Full Article View */
+.article-full-view {
+    background: var(--bg-dark);
+    border-radius: 8px;
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
+    animation: slideUp 0.5s ease forwards;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box;
 }
 
 .back-button {
@@ -150,7 +208,7 @@
 }
 
 .article-content h1 {
-    font-size: 38px; /* Slightly larger for prominence */
+    font-size: 38px;
     font-weight: 700;
     color: var(--accent);
     margin-bottom: var(--spacing-lg);
@@ -166,16 +224,17 @@
 }
 
 .article-content p {
-    font-size: 16px; /* Slightly smaller for readability */
+    font-size: 16px;
     color: var(--text-light);
     line-height: 1.8;
     margin-bottom: var(--spacing-lg);
     font-family: var(--font-secondary);
 }
 
-.article-content img, .article-content video {
+.article-content img,
+.article-content video {
     width: 100%;
-    max-width: 800px; /* Constrain large media */
+    max-width: 800px;
     height: auto;
     margin: var(--spacing-lg) auto;
     border-radius: 5px;
@@ -207,6 +266,8 @@
     transition: opacity 0.3s ease;
     font-family: var(--font-secondary);
     font-size: 14px;
+    z-index: 1000; /* Ensure above other elements */
+    display: none; /* Initial state */
 }
 
 #back-to-top:hover {
@@ -237,6 +298,13 @@
 
 /* Responsive Design */
 @media (max-width: 600px) {
+    .article-content ul {
+        padding-left: var(--spacing-md);
+        font-size: 14px;
+    }
+    .article-content li {
+        margin-bottom: var(--spacing-sm);
+    }
     .articles-container {
         max-width: 100%;
         margin: var(--spacing-md);
@@ -261,6 +329,8 @@
     }
     .article-info {
         font-size: 12px;
+        flex-direction: column;
+        gap: var(--spacing-sm);
     }
     .article-content h1 {
         font-size: 28px;

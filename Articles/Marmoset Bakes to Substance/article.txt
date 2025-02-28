@@ -1,0 +1,32 @@
+Marmoset Baked Textures to Substance Painter
+---
+Typically, the workflow is somewhat laborious when importing baked textures from Marmoset Toolbag into Substance Painter. Especially when you have multiple texture sets. There is a work around to avoid having to manually apply each imported texture to the appropriate Mesh Map slot like below:
+
+https://files.facepunch.com/tom/1b/what%20a%20pain%2C%20right_.gif
+
+This sucks so the solution is to properly name your baked texture maps so that Painter can recognise them and automatically apply them upon import.  Here are the default Toolbag naming conventions and their appropriate corrected names:
+
+* AO → ambient_occlusion
+* curve → curvature
+* (any) id maps → id
+* normal → normal_base
+* thickness → thickness
+* normalobj → world_space_normals 
+
+So for the SpeedLoader example, the files would look like this:
+
+https://files.facepunch.com/tom/1b/Correct%20suffix%20names.png
+
+To make this whole process smooth I suggest changing your Marmoset default baked map suffix naming conventions to match the above in a blank scene and saving it as a template so it loads by default on each new project
+
+https://files.facepunch.com/tom/1b/image.png
+
+
+## Info
+* For OBJ files, make sure you include ‘Materials‘ in the export options
+* For FBX no change should be necessary
+* Make sure you add a material of the same basename to the object in your 3d modelling package before export, so Painter can recognise the material name and texture names.
+
+Here is a video of it working:
+
+https://files.facepunch.com/tom/1b/Baked%20Maps%20auto%20import.mp4
