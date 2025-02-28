@@ -1,0 +1,64 @@
+{
+  "title": "Spas 12 Remake - Rust",
+  "description": "I had about a week or so of \"free time\" in between assigned tasks so i decided to remake the old spas model we were using in Rust. I felt like we needed to have a refresh. So here we are. It was super fun going into a lot of detail on the model, especially on the internal parts and coming to a better understanding how it worked. Sadly, they discontinued the spas model - it's such an iconic weapon.",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "Spas12.html",
+  "media": [
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tom/1b/spas12.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201080GoldenretrieverFast.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201080BullmastiffImpressive.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201080DipperAggressive.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201080UlyssesbutterflyAstonishing.png",
+      "description": ""
+    },
+    {
+      "type": "sketchfab",
+      "url": "https://sketchfab.com/3d-models/spas12-remake-rust-42f776f8c91b42a9bfd43452abe3dfa0",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/22junebaggyeastrussiancoursinghounds.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/1920810BorzoiScaly.png",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": "20,000",
+    "Materials": {
+      "value": "1",
+      "info": "soon to be revised for greater detail & resolution"
+    },
+    "Texture Size": "2048x2048",
+    "Workflow": "PBR Metal/Gloss",
+    "Target Engine": "Unity"
+  }
+}

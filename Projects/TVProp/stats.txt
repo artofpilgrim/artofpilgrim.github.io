@@ -1,5 +1,0 @@
-Triangles: 7,375
-Materials: 1
-Texture Size: 2048x2048 (Reduced to 1k in-game)
-Workflow: PBR Metal/Gloss
-Target Engine: Unity (Rendered in Blender's Viewport here)

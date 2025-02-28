@@ -1,0 +1,42 @@
+{
+  "title": "Caml - Rust",
+  "description": "The Caml! I absolutely loved working on this concept by Howard Schechtman. https://www.twitch.tv/art_of_pilgrim I was encouraged to do a little bit of streaming whilst i work on stuff like this recently so if you're down to watch, chat or ask questions! Feel free to come hang out!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "caml.html",
+  "media": [
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/caml.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/17541312MerganserAnxious.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/17541312ChimpanzeeFrayed.png",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "Unknown",
+      "info": "I need to re-check"
+    },
+    "Materials": {
+      "value": "3",
+      "info": "Barrel & Grip/Receiver & Stock/Lunchbox & Ammo"
+    },
+    "Texture Size": "2048x2048",
+    "Workflow": "PBR Metal/Gloss",
+    "Target Engine": "Unity"
+  }
+}

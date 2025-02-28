@@ -1,0 +1,53 @@
+{
+  "title": "Supply Drop - Rust",
+  "description": "This has been looooong over due. I can't remember when i first made the original supply drop for Rust. But boy, did it need doing! Here's the updated version. I sort of mixed a couple of different types of supply drops together to try and make something a bit unique. Oh, in the 3d viewer - the tarp looks a bit sweaty...ignore that!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity",
+    "Marvelous Designer"
+  ],
+  "htmlFileName": "supplydrop.html",
+  "media": [
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/video-suppldrop002-fullquality.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19202038DucklingWilling.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201919WhelpUnpleasant.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/1920768ChihuahuaRash.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/1356832ApisdorsatalaboriosaWorn.png",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "Unknown",
+      "info": "I need to re-check"
+    },
+    "Materials": {
+      "value": "2",
+      "info": "1 for the opaque and 1 for transparent"
+    },
+    "Texture Size": "2048x2048",
+    "Workflow": "PBR Metal/Gloss",
+    "Target Engine": "Unity"
+  }
+}

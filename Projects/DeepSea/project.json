@@ -1,0 +1,83 @@
+{
+  "title": "Deep Sea Tool Set - Rust",
+  "description": "A few of the assets I made for the new Deep Sea Update for Rust. I also made the skin for the Assault Rifle but i dont really have many decent shots as it's using the old, old mesh.\r\nAlso contributed to 2 of the 3 tank variations.\r\nHope people enjoyed the update!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "deapsea.html",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/ITGfbNahOQ.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/Dq5TNUvpKj.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/JveJKimHrc.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/NIX72g6dof.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/eYYCw7UgwQ.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/kn3uxhXtPd.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/a2gGkbFVLe.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/rPxA3vWM0c.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/mp1zI4Xhzo.jpg",
+      "description": ""
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=JFY0ZF2XL8w",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/NK4dPEOPqS.png",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": "Unknown",
+    "Materials": {
+      "value": "3",
+      "info": "Hatchet/Pickaxe/Torch"
+    },
+    "Texture Size": {
+      "value": "3 x 2048x2048",
+      "info": "Hatchet/Pickaxe/Torch"
+    },
+    "Texel Density": "120 ppi",
+    "Workflow": "PBR Metal/Gloss",
+    "Target Engine": "Unity"
+  }
+}

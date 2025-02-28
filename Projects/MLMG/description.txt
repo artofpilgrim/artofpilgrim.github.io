@@ -1,9 +1,0 @@
-Makeshift LMG - Rust
----
-A homemade LMG for Rust! This was really great to work from concept, which was complete sometime in January 2022. Paul Bradley did a really great job with it. My only suggestion towards changing the concept was with the lunchbox graphic and the stickers to take inspiration from old vintage lunchboxes which is what you now see here on the final asset. Hope you enjoy it!
----
-Blender, Zbrush, Substance Painter, Marmoset Toolbag, Unity
----
-https://files.facepunch.com/tom/1b/TfayTRf4qQ.png
----
-mlmg.html

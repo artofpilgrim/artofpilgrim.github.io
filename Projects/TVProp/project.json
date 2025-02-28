@@ -1,0 +1,47 @@
+{
+  "title": "TV Prop - Rust",
+  "description": "First ever tv vs my most recent. It feels good to remake something like this and then to have it in game! This was just a simple prop for Rust.\r\nCatch me on Twitter where i post more frequently!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "tvprop.html",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/QRs9qXgNXq.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/vKUesas4Y6.jpg",
+      "description": "back_before.jpg // back_after.jpg"
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/8TH6LJM9fj.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/YbpCwpUG4U.jpg",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": "7,375",
+    "Materials": "1",
+    "Texture Size": {
+      "value": "2048x2048",
+      "info": "Reduced to 1k in-game"
+    },
+    "Workflow": "PBR Metal/Gloss",
+    "Target Engine": {
+      "value": "Unity",
+      "info": "Rendered in Blender's Viewport here"
+    }
+  }
+}

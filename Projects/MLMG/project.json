@@ -1,0 +1,47 @@
+{
+  "title": "Makeshift LMG - Rust",
+  "description": "A homemade LMG for Rust! This was really great to work from concept, which was complete sometime in January 2022. Paul Bradley did a really great job with it. My only suggestion towards changing the concept was with the lunchbox graphic and the stickers to take inspiration from old vintage lunchboxes which is what you now see here on the final asset. Hope you enjoy it!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "mlmg.html",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201080CopperheadIncredible.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201364FlyinglemurGuilty.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201923HarrierGrowing.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19203687BigmouthbassRecent.png",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "52,000",
+      "info": "approx"
+    },
+    "Materials": {
+      "value": "3",
+      "info": "Barrel & Grip/Receiver & Stock/Lunchbox & Ammo"
+    },
+    "Texture Size": "2048x2048",
+    "Workflow": "PBR Metal/Gloss",
+    "Target Engine": "Unity"
+  }
+}

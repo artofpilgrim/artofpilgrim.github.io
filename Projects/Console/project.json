@@ -1,0 +1,59 @@
+{
+  "title": "Handheld Console Concept - Rust Hackweek",
+  "description": "This was for one my previous hackweeks. I really loved the idea of being able to pick these consoles off of dead scientists that you come across in Rust and to be able to find and collect more games across the map.\r\nConcept and design process by me in a week. Wish i had more time for this!\r\nPixel art originally done by https://twitter.com/ArkhaiPxls",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Marmoset Toolbag",
+    "Unity",
+    "Substance Painter"
+  ],
+  "htmlFileName": "console.html",
+  "media": [
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tom/1b/handheldconsolevid.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/Fk9QxZO86y.jpg",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tom/1b/23maytartchrysomelid.mp4",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tom/1b/23octobersecondsnail.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/8LH1PPEmwU.jpg",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "Unknown",
+      "info": "I never took stock but it's probably a lot"
+    },
+    "Materials": {
+      "value": "4",
+      "info": "This is including existing in-game materials in a 4-way blender shader"
+    },
+    "Texture Size": {
+      "value": "1024x1024",
+      "info": "various texture sizes but most were 1024"
+    },
+    "Workflow": "PBR Spec/Gloss",
+    "Target Engine": "Unity",
+    "Collaborators": {
+      "value": "3",
+      "info": "I re-used various in-game materials that were made by both Damian Larzarski & Vincent Mayeur"
+    }
+  }
+}

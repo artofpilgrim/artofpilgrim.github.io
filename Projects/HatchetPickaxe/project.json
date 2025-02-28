@@ -1,0 +1,71 @@
+{
+  "title": "Hatchet & Pickaxe Skins - Rust",
+  "description": "These are 2 of the tool skins for the new Rust Lumberjack DLC pack - the Hatchet and Pickaxe skins! Really enjoyed working on these from the concept by Paul Bradley - I have recorded (most of) the process but haven't had time to put it all together so i'll probably post the link to my twitter. Hope you're enjoying the new skins!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "hatchetpickaxe.html",
+  "media": [
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/concretehatchet-002-1-1.mp4",
+      "description": ""
+    },
+    {
+      "type": "sketchfab",
+      "url": "https://sketchfab.com/3d-models/hatchet-pickaxe-tool-skins-for-rust-51282f41b0484e2f886d907c912e6357",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201713RedpandaSpeedy.png",
+      "description": ""
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=-BLtIFm47XE",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19203413GemsbuckFinished.png",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/concretehatchet-002-1-1.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19203413MothRash.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/14471024ReynardWicked.png",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/19201580HoneycreeperStriking.png",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": "20,000",
+    "Materials": "2",
+    "Texture Size": {
+      "value": "2048x2048",
+      "info": "2"
+    },
+    "Texel Density": "",
+    "Workflow": "PBR Metal/Rough",
+    "Target Engine": "Unity",
+    "Collaborators": ""
+  }
+}

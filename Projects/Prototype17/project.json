@@ -1,0 +1,51 @@
+{
+  "title": "Prototype 17 - Rust",
+  "description": "As I wind down for the Christmas break - i just wanted to update an old texture for the Prototype 17 Pistol in Rust. Nothing official just general practice.\r\nOh i made an app to help with hardsurface work like this for production - feel free to download for free! https://pilgrimsart.gumroad.com/l/hardsurfacecheck\r\nHope everyone has a great Christmas break!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Substance Painter",
+    "Marmoset Toolbag",
+    "Unity"
+  ],
+  "htmlFileName": "prototype17.html",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/VYavkzQaAa.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/DKhmU4479l.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/VpeF45qspp.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/ILUaO5CXDH.jpg",
+      "description": ""
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=jBd4gWcugxI",
+      "description": ""
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=GywcI8smMo8",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": "20,000",
+    "Materials": "1",
+    "Texture Size": "2048x2048",
+    "Workflow": "PBR Metal/Rough",
+    "Target Engine": "Unity"
+  }
+}

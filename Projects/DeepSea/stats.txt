@@ -1,6 +1,0 @@
-Triangles: Unknown
-Materials: 3 (Hatchet/Pickaxe/Torch)
-Texture Size: 3 x 2048x2048 (Hatchet/Pickaxe/Torch)
-Texel Density: 120 ppi
-Workflow: PBR Metal/Gloss
-Target Engine: Unity

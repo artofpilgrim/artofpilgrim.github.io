@@ -1,0 +1,79 @@
+{
+  "title": "Caboose - Rust",
+  "description": "I don't always get to work on larger assets like this, but I felt confident in my approach to it after working on the locomotive - learning quite a bit from that project and applying it to this Caboose model. I didn't want to create a new texture trim sheet so i repurposed and heavily modified one of the existing wagon models created by Damian Larzarski some time ago. Modifying its width and height, the interior and the general shape of it to be more in line with the concept(s) provided to me by Paul Bradley. I had to amalgamate different designs to make it work with the limitation on the width of the asset and I'm pretty happy with the outcome. I also repurposed some exterior string lights we already had for the exterior. Neon signs are uniquely made too. I baked the last LOD using the same technique i detailed here. I added a bunch of more unique assets that most share the same uv space to lower the material count. The blackjack machine was really fun to make - i love working on this kind of style of concept, again by the talented Paul Bradley. Just want to give a shoutout to Petur Agust for going over the model and doing all the lighting and atmospherics you see in the in-game shots. And to Bill Borman for bringing the entire caboose to life with his coding wizardry. Paddy for capturing the caboose and some of the images you see here in-game! Hope you all enjoy it!",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Marmoset Toolbag",
+    "Unity",
+    "Substance Painter"
+  ],
+  "htmlFileName": "caboose.html",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/MzPmHbd0LH.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/P3EYYmD7dr.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/WmDb1W1oW2.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/vwlL2iMtfa.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/qdY0jATCBG.jpg",
+      "description": ""
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=GKT0TrAaxMo",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/koXeSw8HTO.png",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tom/1b/bj-blender.mp4",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/TcVLCosV5U.jpg",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "Unknown",
+      "info": "I never took stock but it's probably a lot"
+    },
+    "Materials": {
+      "value": "4",
+      "info": "This is including existing in-game materials in a 4-way blender shader"
+    },
+    "Texture Size": {
+      "value": "1024x1024",
+      "info": "various texture sizes but most were 1024"
+    },
+    "Workflow": "PBR Spec/Gloss",
+    "Target Engine": "Unity",
+    "Collaborators": {
+      "value": "3",
+      "info": "I re-used various in-game materials that were made by both Damian Larzarski & Vincent Mayeur"
+    }
+  }
+}

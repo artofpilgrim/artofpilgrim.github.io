@@ -1,9 +1,0 @@
-Triangles: 34,000 (Approx)
-
-Materials: 3 (Rear Section / Front Section / Camera)
-
-Texture Size: 2048 x 2048
-
-Workflow: PBR Spec/Gloss
-
-Target Engine: Unity

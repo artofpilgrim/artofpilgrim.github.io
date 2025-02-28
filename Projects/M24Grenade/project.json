@@ -1,0 +1,50 @@
+{
+  "title": "M24 Stielhandgranate",
+  "description": "Hey! I was looking back at some old artwork and i came across my very first M24 Stielhandgranate that i created 12+ years ago, and realised i hadn't made one since. So i spent about 4 hours making one! I've included a timelapse and the full video in the post if anyone finds that sort of thing helpful. I'll also be making the mesh and bakes available to my discord community so they can practice some texturing! \r\n<br>\r\nTwitter: https://x.com/ArtOfPilgrim \r\n<br>\r\nDiscord: https://dsc.gg/pilgrim",
+  "tags": [
+    "blender",
+    "zbrush",
+    "marmoset toolbag",
+    "unity"
+  ],
+  "htmlFileName": "m24.html",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/17612160LadybugExpert.png",
+      "description": "old vs new"
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/2JmMN8w8tY.jpg",
+      "description": "i really loved this shot"
+    },
+    {
+      "type": "video",
+      "url": "https://files.facepunch.com/tombutters/1b2511b1/tbrender-001-1.mp4",
+      "description": "I rendered out a turntable"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=RBi3GkPhcBo",
+      "description": "video process timelapse"
+    },
+    {
+      "type": "youtube",
+      "url": "https://www.youtube.com/watch?v=JHG9yfWoavA",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "14,069",
+      "info": "it's a guess"
+    },
+    "Materials": "1",
+    "Texture Size": "4096x4096",
+    "Texel Density": "",
+    "Workflow": "PBR Metal/Rough",
+    "Target Engine": "Marmoset Toolbag",
+    "Collaborators": ""
+  }
+}

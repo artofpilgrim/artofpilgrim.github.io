@@ -1,0 +1,74 @@
+{
+  "title": "Norinco SKS - Rust",
+  "description": "Hey! This is an SKS model I made for Rust. A bunch of random renders I made throughout development towards the end. Was such a fun process making this one!",
+  "tags": [
+    "blender",
+    "zbrush",
+    "marmoset toolbag",
+    "unity"
+  ],
+  "htmlFileName": "sks.html",
+  "media": [
+    {
+      "type": "image-comparison",
+      "urls": [
+        "https://files.facepunch.com/tom/1b/24-06-19_toolbag_zh5qHGft0X.jpg",
+        "https://files.facepunch.com/tom/1b/24-06-19_toolbag_SRZOuI7D6Z.jpg"
+      ],
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/mRQpQn03Gj.jpg",
+      "description": "one of my favourite shots, rendered in marmoset toolbag"
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/sks_2.jpg",
+      "description": "I was inspired by Jonathan Furgusons Royal Armoury videos, i had a bunch of inspiration renders and a lot of real weapon presentations had these short description cards."
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/sks_3.jpg",
+      "description": "BarrelLeftSide.png"
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/Desktop_Main%20Camera%201.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/Desktop_Main%20Camera%202.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://files.facepunch.com/tom/1b/Desktop_FloorCam_01.jpg",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://i.postimg.cc/50kGKrBp/Desktop-Main-Camera-2-003.png",
+      "description": "BottomRight 3_4.png"
+    }
+  ],
+  "stats": {
+    "Triangles": "34,500",
+    "Materials": {
+      "value": "3",
+      "info": "Mag & Barrel/Frame/Receiver"
+    },
+    "Texture Size": "4096x4096",
+    "Texel Density": "120 ppi",
+    "Workflow": {
+      "value": "PBR Metal/Gloss",
+      "info": "This is using a specific Unity shader that uses gloss instead of roughness"
+    },
+    "Target Engine": {
+      "value": "Unity",
+      "info": "These renders are done in Marmoset Toolbag"
+    },
+    "Collaborators": ""
+  }
+}

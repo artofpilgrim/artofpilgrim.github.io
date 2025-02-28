@@ -1,9 +1,0 @@
-Sunburn DLC - Rust
----
-Summer has come! Thoroughly loved working on these retro DLC assets so I really hope you enjoy using them in Rust. Incredibly proud of the team and the effort gone into getting this out on time. I haven't posted in awhile, in what feels like an age. Namely because a lot of the stuff i've been working on is a bit hush-hush at the moment, which is pretty normal. I've also took the time to learn Blender and I have to say that I love it. I may make a articles post about my experience transitioning over from 3ds Max to Blender but in short; it's made modelling fun again and i've been using it ever since. Thanks to Taylor Reynolds for working on the water shader for the water gun and pistol, to Howard Schechtman and Paul Bradley for the concepts to work from. Also big thanks to Lewis Ainslie for creating those sweet 80's visuals for my assets that you see in the DLC reveal trailer and separately here in the post. They're so good. Finally, thanks to Patrick Mazzolo for the in-game cinematic shots showcasing these assets in the incredible trailer!
----
-Blender, Zbrush, Substance Painter, Marmoset Toolbag, Unity
----
-https://files.facepunch.com/tom/1b/pYgzAEXobw.png
----
-sunburn.html
