@@ -235,7 +235,7 @@ h2 {
         padding-top: var(--spacing-sm);
     }
     .navigation-buttons {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 0.5rem;
     }

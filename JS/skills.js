@@ -1,10 +1,18 @@
 function addSkillsAndSoftware() {
-    const softwareContainer = document.querySelector('.skills-panel .software-tag-container:first-of-type');
-    const skillsContainer = document.querySelector('.skills-panel .software-tag-container:last-of-type');
+    // Select containers using the new IDs
+    const softwareContainer = document.querySelector('#software-panel .software-tag-container');
+    const skillsContainer = document.querySelector('#skills-panel .software-tag-container');
+
+    // Check if containers exist to avoid errors
+    if (!softwareContainer || !skillsContainer) {
+        console.error('One or more tag containers not found. Check HTML structure and IDs.');
+        return;
+    }
 
     const fetchAndPopulate = async (url, container) => {
         try {
             const response = await fetch(url);
+            if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
             const text = await response.text();
             const itemsArray = text.split('\n').map(item => item.trim()).filter(item => item);
 

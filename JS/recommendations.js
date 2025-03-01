@@ -14,14 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     recommendationContent.tabIndex = 0;
 
-    const debounce = (func, wait) => {
-        let timeout;
-        return (...args) => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func(...args), wait);
-        };
-    };
-
     const throttle = (func, limit) => {
         let inThrottle;
         return (...args) => {
@@ -35,8 +27,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const cacheKey = 'recommendations_v1';
     let recommendations;
-    const cached = localStorage.getItem(cacheKey);
     try {
+        const cached = localStorage.getItem(cacheKey);
         if (cached) {
             console.log('Using cached recommendations');
             recommendations = cached.split('---').map(rec => rec.trim()).filter(Boolean);
@@ -154,16 +146,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
 
-        const debouncedShowRecommendation = debounce((index, direction) => showRecommendation(index, direction), 200);
-
         const handleDotClick = (event) => {
             if (event.target.classList.contains('dot')) {
                 clearInterval(autoplay);
                 const index = parseInt(event.target.dataset.index, 10);
                 if (index > currentIndex) {
-                    debouncedShowRecommendation(index, 'left');
+                    showRecommendation(index, 'left');
                 } else if (index < currentIndex) {
-                    debouncedShowRecommendation(index, 'right');
+                    showRecommendation(index, 'right');
                 }
             }
         };
@@ -171,10 +161,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         const handleKeydown = (e) => {
             if (e.key === 'ArrowLeft' && currentIndex > 0) {
                 clearInterval(autoplay);
-                debouncedShowRecommendation(currentIndex - 1, 'right');
+                showRecommendation(currentIndex - 1, 'right');
             } else if (e.key === 'ArrowRight' && currentIndex < recommendationsElements.length - 1) {
                 clearInterval(autoplay);
-                debouncedShowRecommendation(currentIndex + 1, 'left');
+                showRecommendation(currentIndex + 1, 'left');
             }
         };
 
@@ -224,7 +214,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
 
-        const debouncedAdjustHeight = debounce(adjustHeight, 200);
+        const debouncedAdjustHeight = throttle(adjustHeight, 200); // Using throttle instead of debounce for smoother resize
         window.addEventListener('resize', debouncedAdjustHeight);
         adjustHeight();
 

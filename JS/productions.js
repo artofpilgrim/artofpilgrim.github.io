@@ -1,54 +1,57 @@
 // Function to create a production card
-function createProductionCard(title, company, time, thumbnail, description) {
-    const card = document.createElement("div");
-    card.classList.add("production-subpanel");
+function createProductionCard({ title, company, time, thumbnail, description }) {
+    const card = Object.assign(document.createElement('div'), {
+        className: 'production-subpanel'
+    });
 
-    const img = document.createElement("img");
-    img.src = thumbnail;
-    img.alt = title;
+    const img = Object.assign(document.createElement('img'), {
+        src: thumbnail,
+        alt: `${title} thumbnail`,
+        loading: 'lazy' // Optimize image loading
+    });
 
-    const detailsDiv = document.createElement("div");
-    detailsDiv.classList.add("production-details");
+    const contentContainer = Object.assign(document.createElement('div'), {
+        className: 'production-content'
+    });
 
-    const titleElem = document.createElement("h2");
-    titleElem.textContent = title;
+    const detailsDiv = Object.assign(document.createElement('div'), {
+        className: 'production-details'
+    });
 
-    const companyElem = document.createElement("p");
-    companyElem.textContent = company;
-    companyElem.style.fontWeight = "bold"; // Inline style for bold text
+    const titleElem = Object.assign(document.createElement('h2'), {
+        textContent: title
+    });
 
-    const timeElem = document.createElement("p");
-    timeElem.textContent = time;
-    timeElem.style.fontStyle = "italic"; // Inline style for italic text
+    const companyElem = Object.assign(document.createElement('p'), {
+        className: 'production-company', // Style via CSS
+        textContent: company
+    });
 
-    // Append text elements to the detailsDiv
-    detailsDiv.appendChild(titleElem);
-    detailsDiv.appendChild(companyElem);
-    detailsDiv.appendChild(timeElem);
+    const timeElem = Object.assign(document.createElement('p'), {
+        className: 'production-time', // Style via CSS
+        textContent: time
+    });
 
-    // Create a new div for the description
-    const descDiv = document.createElement("div");
-    descDiv.classList.add("production-description");
-    const descElem = document.createElement("p");
-    descElem.textContent = description;
+    const descDiv = Object.assign(document.createElement('div'), {
+        className: 'production-description'
+    });
+
+    const descElem = Object.assign(document.createElement('p'), {
+        textContent: description
+    });
+
+    // Build the structure
+    detailsDiv.append(titleElem, companyElem, timeElem);
     descDiv.appendChild(descElem);
-
-    // Create a container for the details and description
-    const contentContainer = document.createElement("div");
-    contentContainer.classList.add("production-content");
-    contentContainer.appendChild(detailsDiv);
-    contentContainer.appendChild(descDiv);
-
-    // Append img and contentContainer to the main card
-    card.appendChild(img);
-    card.appendChild(contentContainer);
+    contentContainer.append(detailsDiv, descDiv);
+    card.append(img, contentContainer);
 
     return card;
 }
 
-// Fetch and append production cards on DOM content load
-document.addEventListener("DOMContentLoaded", async () => {
-    const productionsContainer = document.querySelector(".productions-subpanels");
+// Fetch and populate production cards
+document.addEventListener('DOMContentLoaded', async () => {
+    const productionsContainer = document.querySelector('.productions-subpanels');
     if (!productionsContainer) {
         console.error('Productions container not found');
         return;
@@ -56,26 +59,37 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         const response = await fetch('../Config/productions.txt');
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.statusText}`);
-        }
+        if (!response.ok) throw new Error(`Network response failed: ${response.statusText}`);
         const text = await response.text();
-        const productions = text.split('---').map(prod => prod.trim()).filter(prod => prod);
+        if (!text.trim()) throw new Error('Productions file is empty');
 
+        const productions = text.split('---').map(prod => prod.trim()).filter(Boolean);
         const fragment = document.createDocumentFragment();
 
         productions.forEach((prod, index) => {
             const lines = prod.split('\n').map(line => line.trim()).filter(line => line && !line.startsWith('#'));
             if (lines.length === 5) {
-                const card = createProductionCard(lines[0], lines[1], lines[2], lines[3], lines[4]);
+                const productionData = {
+                    title: lines[0],
+                    company: lines[1],
+                    time: lines[2],
+                    thumbnail: lines[3],
+                    description: lines[4]
+                };
+                const card = createProductionCard(productionData);
                 fragment.appendChild(card);
             } else {
-                console.error(`Invalid production data format at index ${index}:`, lines);
+                console.warn(`Skipping malformed production at index ${index}: Expected 5 lines, got ${lines.length}`, lines);
             }
         });
 
-        productionsContainer.appendChild(fragment);
+        if (!fragment.children.length) {
+            productionsContainer.innerHTML = '<p>No productions available at this time.</p>';
+        } else {
+            productionsContainer.appendChild(fragment);
+        }
     } catch (error) {
         console.error('Failed to load productions:', error);
+        productionsContainer.innerHTML = '<p>Unable to load productions. Please try again later.</p>';
     }
 });
