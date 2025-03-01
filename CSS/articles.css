@@ -208,7 +208,7 @@ body {
 }
 
 .article-content h1 {
-    font-size: 38px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--accent);
     margin-bottom: var(--spacing-lg);
@@ -216,7 +216,7 @@ body {
 }
 
 .article-content h2 {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--text-light);
     margin: var(--spacing-lg) 0 var(--spacing-md);
@@ -231,26 +231,19 @@ body {
     font-family: var(--font-secondary);
 }
 
+/* Article Content Media */
 .article-content img,
-.article-content video {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
+.article-content video,
+.article-content iframe {
+    width: auto; /* Use natural width unless constrained */
+    max-width: min(800px, 100%); /* Cap at 800px or container width, whichever is smaller */
+    height: auto; /* Maintain aspect ratio */
     margin: var(--spacing-lg) auto;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     display: block;
 }
 
-.article-content iframe {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    margin: var(--spacing-lg) auto;
-    border-radius: 5px;
-    display: block;
-}
 
 /* Back to Top */
 #back-to-top {
@@ -295,6 +288,16 @@ body {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Desktop Adjustments */
+@media (min-width: 1024px) {
+    .article-content img,
+    .article-content video,
+    .article-content iframe {
+        max-width: 60vw; /* Limit to 60% of viewport width on desktop */
+    }
+}
+
 
 /* Responsive Design */
 @media (max-width: 600px) {
