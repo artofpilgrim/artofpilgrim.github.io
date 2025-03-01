@@ -257,10 +257,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const positionTooltip = (event, tooltip) => {
         const rect = tooltip.getBoundingClientRect();
+    
+        // Calculate preferred top position (above the cursor)
         let top = event.clientY - rect.height - 10;
+    
+        // If it doesn’t fit above, place it below
+        if (top < 0) {
+            top = event.clientY + 10;
+        }
+    
+        // Ensure it doesn’t overflow the bottom
+        if (top + rect.height > window.innerHeight) {
+            top = window.innerHeight - rect.height;
+        }
+    
+        // Ensure top is not negative (e.g., if tooltip is taller than window)
+        if (top < 0) {
+            top = 0;
+        }
+    
+        // Calculate left position
         let left = event.clientX;
-        if (top < 0) top = event.clientY + 10;
-        if (left + rect.width > window.innerWidth) left = window.innerWidth - rect.width - 10;
+    
+        // Ensure it doesn’t overflow the right
+        if (left + rect.width > window.innerWidth) {
+            left = window.innerWidth - rect.width;
+        }
+    
+        // Ensure it doesn’t overflow the left
+        if (left < 0) {
+            left = 0;
+        }
+    
+        // Apply the calculated position
         tooltip.style.top = `${top}px`;
         tooltip.style.left = `${left}px`;
     };
