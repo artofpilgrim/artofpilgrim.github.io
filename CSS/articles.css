@@ -13,6 +13,7 @@
     --card-gap: 16px;
     --font-primary: 'Montserrat', 'Arial', sans-serif;
     --font-secondary: 'Poppins', 'Helvetica', sans-serif;
+    --border-radius: 5px; /* Added for consistency */
 }
 
 /* Ensure full page scrolling */
@@ -23,15 +24,15 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Remove body scrollbar when not needed */
 body {
-    overflow-y: auto; /* Enable page scrolling */
+    overflow-y: auto;
 }
 
+/* Article Content List */
 .article-content ul {
-    list-style-type: disc; /* Default bullet style */
-    padding-left: var(--spacing-lg); /* Indent list */
-    margin: var(--spacing-lg) 0; /* Spacing above and below */
+    list-style-type: disc;
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
     color: var(--text-light);
     font-family: var(--font-secondary);
     font-size: 16px;
@@ -39,7 +40,7 @@ body {
 }
 
 .article-content li {
-    margin-bottom: var(--spacing-sm); /* Space between bullets */
+    margin-bottom: var(--spacing-sm);
 }
 
 .article-content li a {
@@ -58,7 +59,6 @@ body {
     margin: var(--spacing-sm) auto;
     padding: var(--spacing-lg);
     background-color: var(--bg-dark);
-    /* Remove overflow-y: auto to let body scroll */
 }
 
 /* List View */
@@ -77,8 +77,8 @@ body {
 
 /* Article Card (List View) */
 .articles-container.list-view .article-card {
-    background: #181818;
-    border-radius: .25em;
+    background: var(--bg-medium);
+    border-radius: var(--border-radius);
     padding: var(--spacing-lg);
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
@@ -89,10 +89,10 @@ body {
 }
 
 .articles-container.list-view .article-card:hover {
-    
-    background-color: #1c1c1c;
+    background-color: var(--bg-light);
 }
 
+/* Article Preview */
 .article-preview {
     display: flex;
     gap: var(--spacing-lg);
@@ -100,31 +100,37 @@ body {
     align-items: center;
 }
 
+/* Article Thumbnail */
 .article-thumbnail {
     width: 140px;
     height: 90px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     flex-shrink: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Article Text */
 .article-text {
     flex: 1;
 }
 
+/* Article Title */
 .article-title {
     font-size: 16px;
     font-weight: 600;
     color: var(--text-light);
     margin: 0 0 var(--spacing-sm);
+    font-family: var(--font-primary);
 }
 
+/* Article Snippet */
 .article-snippet {
     font-size: 14px;
     color: var(--text-muted);
     line-height: 1.5;
     margin: 0 0 var(--spacing-sm);
+    font-family: var(--font-secondary);
 }
 
 /* Article Info with Metadata */
@@ -139,6 +145,7 @@ body {
     flex-wrap: wrap;
     gap: var(--spacing-md);
     align-items: center;
+    font-family: var(--font-secondary);
 }
 
 /* Specific Metadata Parts */
@@ -185,16 +192,19 @@ body {
     border-radius: 8px;
     padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
     animation: slideUp 0.5s ease forwards;
-    width: 100%; /* Ensure full width */
+    width: 100%;
     box-sizing: border-box;
+    max-width: 1200px; /* Limits the width on large screens */
+    margin: 0 auto; /* Centers the article horizontally */
 }
 
+/* Back Button */
 .back-button {
     background: var(--bg-light);
     color: var(--text-light);
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     margin-bottom: var(--spacing-lg);
     transition: background-color 0.3s ease;
@@ -207,6 +217,7 @@ body {
     color: var(--bg-dark);
 }
 
+/* Article Content Headings */
 .article-content h1 {
     font-size: 26px;
     font-weight: 700;
@@ -223,6 +234,7 @@ body {
     font-family: var(--font-primary);
 }
 
+/* Article Content Paragraphs */
 .article-content p {
     font-size: 16px;
     color: var(--text-light);
@@ -231,21 +243,32 @@ body {
     font-family: var(--font-secondary);
 }
 
-/* Article Content Media */
+/* Article Content Media (Images and Videos) */
 .article-content img,
-.article-content video,
-.article-content iframe {
-    width: auto; /* Use natural width unless constrained */
-    max-width: min(800px, 100%); /* Cap at 800px or container width, whichever is smaller */
-    height: auto; /* Maintain aspect ratio */
+.article-content video {
+    width: auto;
+    max-width: min(800px, 100%);
+    height: auto;
     margin: var(--spacing-lg) auto;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     display: block;
 }
 
+/* Styling for iframes within article content */
+.article-content iframe {
+    width: 100%; /* Fills the container’s width */
+    max-width: 800px; /* Limits width to 800px, adjust as needed */
+    aspect-ratio: 16 / 9; /* Maintains video proportions */
+    height: auto; /* Height adjusts based on aspect-ratio */
+    display: block; /* Prevents inline spacing issues */
+    margin: 20px auto; /* Centers it with spacing */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Optional: aesthetic */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: aesthetic */
+}
 
-/* Back to Top */
+/* Back to Top Button */
 #back-to-top {
     position: fixed;
     bottom: var(--spacing-md);
@@ -254,13 +277,13 @@ body {
     color: var(--bg-dark);
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: opacity 0.3s ease;
     font-family: var(--font-secondary);
     font-size: 14px;
-    z-index: 1000; /* Ensure above other elements */
-    display: none; /* Initial state */
+    z-index: 1000;
+    display: none;
 }
 
 #back-to-top:hover {
@@ -269,7 +292,7 @@ body {
 
 /* Spinner */
 .spinner {
-    border: 4px solid #777;
+    border: 4px solid var(--text-muted); /* Replaced #777 */
     border-top: 4px solid var(--accent);
     border-radius: 50%;
     width: 32px;
@@ -289,15 +312,16 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Desktop Adjustments */
-@media (min-width: 1024px) {
+/* Override the media query for iframes only */
+@media (min-width: 4096px) {
     .article-content img,
-    .article-content video,
+    .article-content video {
+        max-width: 80vw; /* Keep this for images and videos */
+    }
     .article-content iframe {
-        max-width: 60vw; /* Limit to 60% of viewport width on desktop */
+        max-width: 800px; /* Keeps iframe capped at 800px, override if you prefer a different size */
     }
 }
-
 
 /* Responsive Design */
 @media (max-width: 600px) {

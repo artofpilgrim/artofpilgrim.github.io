@@ -189,7 +189,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (url.match(/(youtube\.com|youtu\.be)/)) {
                     let videoId = url.split('v=')[1] || url.split('youtu.be/')[1];
                     if (videoId?.includes('&')) videoId = videoId.split('&')[0];
-                    return `<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                    // No inline width or height attributes
+                    return `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 }
                 return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
             });

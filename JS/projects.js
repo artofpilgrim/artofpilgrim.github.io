@@ -340,6 +340,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const init = async () => {
         projects = await fetchProjects();
+        console.log('Fetched projects:', projects); // Add this line
         if (!projects.length) console.warn('No projects found');
         setupEventListeners();
         await fetchProjectData();

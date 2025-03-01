@@ -1,35 +1,29 @@
 {
-  "title": "Homing Missile Launcher - Rust",
+  "title": "Homemade Revolver - Rust",
   "description": "The home made homing missile launcher for Rust. Quite a fun one to make, the concept by Paul Bradley was awesome.\r\nBonus: I also made the attack heli, the weapon racks and the launcher ammo in the video/update!",
   "tags": [
     "Blender",
     "Zbrush",
     "Marmoset Toolbag",
     "Unity",
-    "Substance Painter",
-    "Marvelous Designer"
+    "Substance Painter"
   ],
-  "htmlFileName": "hml.html",
-  "thumbnail": "https://i.postimg.cc/08Hjksrx/image.png",
+  "htmlFileName": "hmrevolver.html",
+  "thumbnail": "https://cdnb.artstation.com/p/assets/images/images/080/433/417/large/pilgrim-2.jpg?1727562362",
   "media": [
     {
-      "type": "video",
-      "url": "https://files.facepunch.com/tom/1b/hm4-1.mp4",
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/080/433/421/large/pilgrim-4.jpg?1727562374",
       "description": ""
     },
     {
       "type": "image",
-      "url": "https://i.postimg.cc/08Hjksrx/image.png",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/080/433/417/large/pilgrim-2.jpg?1727562362",
       "description": ""
     },
     {
       "type": "image",
-      "url": "https://i.postimg.cc/KbwjCxdD/image.png",
-      "description": ""
-    },
-    {
-      "type": "image",
-      "url": "https://files.facepunch.com/tom/1b/epkt4I58oE.jpg",
+      "url": "https://cdna.artstation.com/p/assets/images/images/080/433/424/large/pilgrim-6.jpg?1727562385",
       "description": ""
     },
     {

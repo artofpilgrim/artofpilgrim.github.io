@@ -66,44 +66,61 @@ const cacheFetch = async (url, key) => {
 };
 
 function fetchProjectData(projectName) {
-    const descriptionPath = `../Projects/${projectName}/description.txt`;
-    const mediaPath = `../Projects/${projectName}/media.txt`;
+    const projectJsonPath = `../Projects/${projectName}/project.json`;
+    console.log(`Attempting to fetch: ${projectJsonPath}`); // Log the exact path
 
-    return Promise.all([
-        cacheFetch(descriptionPath, `${projectName}_desc_v1`).catch(error => {
-            throw new Error(`Failed to load description for ${projectName}: ${error.message}`);
-        }),
-        cacheFetch(mediaPath, `${projectName}_media_v1`).catch(error => {
-            throw new Error(`Failed to load media for ${projectName}: ${error.message}`);
+    return fetch(projectJsonPath)
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Fetch failed for ${projectName}: ${response.status} ${response.statusText}`);
+                throw new Error(`Failed to load project.json for ${projectName}: ${response.status}`);
+            }
+            return response.json();
         })
-    ])
-    .then(([descriptionText, mediaText]) => {
-        const [title = 'Untitled', description = '', tags = '', thumbnailUrl = '../default-thumbnail.jpg', htmlFileName = 'index.html'] = descriptionText.split('---').map(line => line.trim());
-        const galleryPageUrl = descriptionPath.replace('description.txt', htmlFileName);
+        .then(projectData => {
+            console.log(`Data fetched for ${projectName}:`, projectData); // Log the JSON data
+            const { title, thumbnail, htmlFileName, media } = projectData;
 
-        const mediaLines = mediaText.split('\n').map(line => line.trim()).filter(line => line && !line.startsWith('#'));
-        const hasMultipleImages = mediaLines.filter(line => /\.(jpeg|jpg|gif|png)$/i.test(line)).length > 1;
-        const hasVideo = mediaLines.some(line => /\.(mp4)$/i.test(line));
-        const hasYouTube = mediaLines.some(line => /youtube\.com|youtu\.be/i.test(line));
-        const hasSketchfab = mediaLines.some(line => /sketchfab\.com/i.test(line));
+            // Check for missing fields
+            if (!thumbnail) console.warn(`No thumbnail found in project.json for ${projectName}`);
+            if (!title || !htmlFileName || !media) {
+                console.warn(`Incomplete data for ${projectName}:`, { title, thumbnail, htmlFileName, media });
+            }
 
-        const bannerImageLine = mediaLines.find(line => line.endsWith('*'));
-        const bannerImageUrl = bannerImageLine ? bannerImageLine.replace('*', '').trim() : null;
+            const hasMultipleImages = media.filter(item => item.type === 'image').length > 1;
+            const hasVideo = media.some(item => item.type === 'video');
+            const hasYouTube = media.some(item => item.type === 'youtube');
+            const hasSketchfab = media.some(item => item.type === 'sketchfab');
 
-        return { src: thumbnailUrl, alt: title, galleryPageUrl, hasMultipleImages, hasVideo, hasYouTube, hasSketchfab, bannerImageUrl };
-    })
-    .catch(error => {
-        console.error(`Error loading project data for ${projectName}:`, error);
-        return null;
-    });
+            return {
+                src: thumbnail || '../default-thumbnail.jpg',
+                alt: title,
+                galleryPageUrl: `../Projects/${projectName}/${htmlFileName || 'index.html'}`,
+                hasMultipleImages,
+                hasVideo,
+                hasYouTube,
+                hasSketchfab
+            };
+        })
+        .catch(error => {
+            console.error(`Error loading project data for ${projectName}:`, error);
+            return null; // Skip this project if it fails
+        });
 }
 
 function fetchProjects() {
-    return cacheFetch('../Config/projects.txt', 'projects_v1')
-        .then(text => text.split('\n').map(line => line.trim()).filter(Boolean))
+    const projectsJsonPath = '../Config/projects.json'; // Adjust the path if necessary
+    return fetch(projectsJsonPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load projects.json: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => data.projects || []) // Extract the 'projects' array, default to empty if missing
         .catch(error => {
-            thumbnailContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
             console.error('Error loading projects:', error);
+            thumbnailContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
             return [];
         });
 }
