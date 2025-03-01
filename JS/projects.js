@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             try {
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(`${errorMessage}: ${response.status}`);
-                return url.endsWith('.json') ? response.json() : response.text();
+                return url.endsWith('.json') ? await response.json() : await response.text();
             } catch (error) {
                 if (i === retries) {
                     console.error(error);
@@ -88,17 +88,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const renderMedia = (mediaArray) => {
         const container = document.getElementById('project-media');
-        container.innerHTML = '<div class="spinner"></div>';
-        if (!mediaArray || !mediaArray.length) {
-            container.innerHTML = '<p>No media available.</p>';
-            return;
-        }
+        container.innerHTML = '';
         const fragment = document.createDocumentFragment();
         mediaArray.forEach(mediaItem => {
             const mediaElement = createMediaElement(mediaItem);
             if (mediaElement) fragment.appendChild(mediaElement);
         });
-        container.innerHTML = '';
         container.appendChild(fragment);
     };
 
@@ -111,45 +106,55 @@ document.addEventListener('DOMContentLoaded', async () => {
             case 'image':
                 const img = document.createElement('img');
                 img.src = url;
-                img.alt = description;
+                img.alt = description || '';
                 img.loading = 'lazy';
                 mediaElement.appendChild(img);
                 break;
-            case 'image-comparison':
-                const imgContainer = document.createElement('div');
-                imgContainer.className = 'img-container';
-                const img1 = document.createElement('img');
-                img1.src = urls[0];
-                img1.className = 'image-1';
-                img1.alt = 'Primary image';
-                img1.loading = 'lazy';
-                imgContainer.appendChild(img1);
-                const img2 = document.createElement('img');
-                img2.src = urls[1];
-                img2.className = 'image-2';
-                img2.alt = 'Secondary image';
-                img2.loading = 'lazy';
-                imgContainer.appendChild(img2);
-                const sliderContainer = document.createElement('div');
-                sliderContainer.className = 'slider-container';
-                const sliderLine = document.createElement('div');
-                sliderLine.className = 'slider-line';
-                const slider = document.createElement('input');
-                slider.type = 'range';
-                slider.min = '0';
-                slider.max = '100';
-                slider.value = '50';
-                slider.className = 'image-slider';
-                slider.setAttribute('aria-label', 'Image comparison slider');
-                slider.addEventListener('input', debounce(() => {
-                    img2.style.clipPath = `inset(0 0 0 ${slider.value}%)`;
-                    sliderLine.style.left = `calc(${slider.value}% - 1px)`;
-                }, 10));
-                sliderContainer.appendChild(sliderLine);
-                sliderContainer.appendChild(slider);
-                mediaElement.appendChild(imgContainer);
-                mediaElement.appendChild(sliderContainer);
-                break;
+                case 'image-comparison':
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'img-container';
+                    const img1 = document.createElement('img');
+                    img1.src = urls[0];
+                    img1.className = 'image-1';
+                    img1.alt = 'Primary image';
+                    img1.loading = 'lazy';
+                    imgContainer.appendChild(img1);
+                    const img2 = document.createElement('img');
+                    img2.src = urls[1];
+                    img2.className = 'image-2';
+                    img2.alt = 'Secondary image';
+                    img2.loading = 'lazy';
+                    imgContainer.appendChild(img2);
+                    const sliderContainer = document.createElement('div');
+                    sliderContainer.className = 'slider-container';
+                    const sliderLine = document.createElement('div');
+                    sliderLine.className = 'slider-line';
+                    const slider = document.createElement('input');
+                    slider.type = 'range';
+                    slider.min = '0';
+                    slider.max = '100';
+                    slider.value = '50';
+                    slider.className = 'image-slider';
+                    slider.setAttribute('aria-label', 'Image comparison slider');
+
+                    // Set initial styles directly
+                    img2.style.clipPath = `inset(0 0 0 50%)`;
+                    sliderLine.style.left = `calc(50% - 1px)`;
+
+                    let rafId;
+                    slider.addEventListener('input', () => {
+                        if (rafId) cancelAnimationFrame(rafId); // Cancel previous frame to avoid buildup
+                        rafId = requestAnimationFrame(() => {
+                        img2.style.clipPath = `inset(0 0 0 ${slider.value}%)`;
+                        sliderLine.style.left = `calc(${slider.value}% - 1px)`;
+                        });
+                    });
+
+                    sliderContainer.appendChild(sliderLine);
+                    sliderContainer.appendChild(slider);
+                    mediaElement.appendChild(imgContainer);
+                    mediaElement.appendChild(sliderContainer);
+                    break;
             case 'video':
                 const video = document.createElement('video');
                 video.src = url;
@@ -316,9 +321,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const setupEventListeners = () => {
         const mediaContainer = document.querySelector('.media-container');
         const backToTopButton = document.getElementById('back-to-top');
-        mediaContainer.addEventListener('scroll', debounce(() => {
+        mediaContainer.addEventListener('scroll', () => {
             backToTopButton.style.display = mediaContainer.scrollTop > 1000 ? 'block' : 'none';
-        }, 100));
+        });
         backToTopButton.addEventListener('click', () => {
             mediaContainer.scrollTo({ top: 0, behavior: 'smooth' });
         });
