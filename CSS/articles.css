@@ -28,7 +28,6 @@ body {
     overflow-y: auto;
 }
 
-
 /* Article Content List */
 .article-content ul {
     list-style-type: disc;
@@ -77,7 +76,7 @@ body {
 }
 
 /* Article Card (List View) */
-.articles-container.list-view .article-card {
+.articles-container.list-view {
     background: var(--bg-medium);
     border-radius: var(--border-radius);
     padding: var(--spacing-lg);
@@ -87,6 +86,13 @@ body {
     display: flex;
     gap: var(--spacing-md);
     cursor: pointer;
+}
+
+.article-card {
+    background: var(--bg-dark);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
 }
 
 .articles-container.list-view .article-card:hover {
