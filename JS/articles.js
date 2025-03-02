@@ -9,13 +9,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     const articlesContainer = document.querySelector('.articles-container');
-    const backToTopButton = document.getElementById('back-to-top');
+
     let articles = [];
 
-    if (!articlesContainer || !backToTopButton) {
-        console.error('Required elements not found');
-        return;
-    }
 
     const loadArticles = async () => {
         console.log('Loading articles');
@@ -198,13 +194,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         return line;
     };
 
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('scroll', () => {
-        backToTopButton.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
 
     await loadArticles();
 });

@@ -226,6 +226,27 @@ h3 {
   height: auto;
 }
 
+#toggle-description {
+  display: inline-block;
+  color: grey;
+  background-color: #222222;
+  padding: 2px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+  transition: color 0.3s;
+  opacity: 0.5;
+}
+
+#toggle-description:hover {
+  opacity: 1;
+  color: #f5ba13;
+  background-color: #272727;
+}
+
+
 hr {
   opacity: 0.05;
 }
@@ -254,6 +275,93 @@ hr {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px; /* Matches toggle focus style */
 }
+
+/* Project Tags Container Styling */
+.project-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.software-tag {
+  background-color: #2d2d2d;
+  color: darkgray;
+  padding: 5px 10px;
+  border-radius: 0.25em;
+  font-size: 14px;
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
+  white-space: nowrap; /* Prevent tags from breaking into multiple lines */
+}
+
+.project-stats-container {
+  padding: 10px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: darkgrey;
+  font-size: 14px;
+  margin-right: 5px;
+  font-weight: 400;
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
+}
+
+.stat-icon {
+  margin-right: 10px;
+}
+
+.triangle-icon, .material-icon, .engine-icon, .size-icon, .td-icon, .workflow-icon, .collab-icon {
+  color: #373737; /* Pastel green */
+}
+
+.stat strong {
+  margin-right: 5px;
+  font-weight: 400;
+}
+
+.stat-info-icon {
+  margin-left: 5px;
+  color: #373737;
+  cursor: pointer;
+  position: relative;
+}
+
+.stat-info-icon:hover {
+  color: #f5ba13;
+}
+
+.tooltip {
+  display: none;
+  position: fixed; /* Use fixed positioning */
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: .25em;
+  z-index: 1000; /* Ensure tooltip is above other elements */
+  font-size: 12px;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 600px) {
