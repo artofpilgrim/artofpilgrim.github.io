@@ -28,6 +28,7 @@ body {
     overflow-y: auto;
 }
 
+
 /* Article Content List */
 .article-content ul {
     list-style-type: disc;
@@ -58,7 +59,7 @@ body {
     max-width: 95%;
     margin: var(--spacing-sm) auto;
     padding: var(--spacing-lg);
-    background-color: var(--bg-dark);
+    
 }
 
 /* List View */
