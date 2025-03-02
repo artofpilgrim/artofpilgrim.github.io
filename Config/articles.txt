@@ -1,4 +1,0 @@
-BlueprintsBlender
-BakingLods
-PureRef
-Marmoset Bakes to Substance

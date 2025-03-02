@@ -29,10 +29,9 @@ function createThumbnail(src, alt, galleryPageUrl, hasMultipleImages, hasVideo, 
     const addOverlayIcon = (className) => {
         const icon = document.createElement('i');
         icon.className = `${className} overlay-icon`;
-        const spacing = 20; // Reduced from 25px to fit within 200px
-        icon.style.left = `${10 + iconIndex * spacing}px`; // Inline style for reliability
+        const spacing = 20;
+        icon.style.left = `${10 + iconIndex * spacing}px`;
         thumbnailDiv.appendChild(icon);
-        console.log(`Added ${className} at index ${iconIndex}, left: ${icon.style.left}`); // Debugging
         iconIndex++;
     };
 
@@ -55,38 +54,15 @@ function createThumbnail(src, alt, galleryPageUrl, hasMultipleImages, hasVideo, 
     return thumbnailLink;
 }
 
-const cacheFetch = async (url, key) => {
-    const cached = localStorage.getItem(key);
-    if (cached) return cached;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Failed to load ${url}`);
-    const text = await response.text();
-    localStorage.setItem(key, text);
-    return text;
-};
-
 function fetchProjectData(projectName) {
     const projectJsonPath = `../Projects/${projectName}/project.json`;
-    console.log(`Attempting to fetch: ${projectJsonPath}`); // Log the exact path
-
     return fetch(projectJsonPath)
         .then(response => {
-            if (!response.ok) {
-                console.error(`Fetch failed for ${projectName}: ${response.status} ${response.statusText}`);
-                throw new Error(`Failed to load project.json for ${projectName}: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`Failed to load project.json for ${projectName}: ${response.status}`);
             return response.json();
         })
         .then(projectData => {
-            console.log(`Data fetched for ${projectName}:`, projectData); // Log the JSON data
             const { title, thumbnail, htmlFileName, media } = projectData;
-
-            // Check for missing fields
-            if (!thumbnail) console.warn(`No thumbnail found in project.json for ${projectName}`);
-            if (!title || !htmlFileName || !media) {
-                console.warn(`Incomplete data for ${projectName}:`, { title, thumbnail, htmlFileName, media });
-            }
-
             const hasMultipleImages = media.filter(item => item.type === 'image').length > 1;
             const hasVideo = media.some(item => item.type === 'video');
             const hasYouTube = media.some(item => item.type === 'youtube');
@@ -104,20 +80,18 @@ function fetchProjectData(projectName) {
         })
         .catch(error => {
             console.error(`Error loading project data for ${projectName}:`, error);
-            return null; // Skip this project if it fails
+            return null;
         });
 }
 
 function fetchProjects() {
-    const projectsJsonPath = '../Config/projects.json'; // Adjust the path if necessary
+    const projectsJsonPath = '../Config/projects.json';
     return fetch(projectsJsonPath)
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to load projects.json: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`Failed to load projects.json: ${response.status}`);
             return response.json();
         })
-        .then(data => data.projects || []) // Extract the 'projects' array, default to empty if missing
+        .then(data => data.projects || [])
         .catch(error => {
             console.error('Error loading projects:', error);
             thumbnailContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
@@ -129,13 +103,21 @@ const thumbnailContainer = document.getElementById('thumbnail-container');
 if (!thumbnailContainer) {
     console.error('Thumbnail container not found');
 } else {
-    thumbnailContainer.innerHTML = '<p>Loading projects...</p>';
+    // Add spinner HTML instead of plain text
+    thumbnailContainer.innerHTML = `
+        <div class="spinner-container">
+            <div class="spinner"></div>
+        </div>
+    `;
 
     fetchProjects().then(projects => {
         if (!projects.length) return;
 
         const fragment = document.createDocumentFragment();
         let bannerImageSet = false;
+
+        // Create an array to store thumbnails in order
+        const thumbnails = new Array(projects.length);
 
         const projectPromises = projects.map((projectName, index) =>
             fetchProjectData(projectName).then(artwork => {
@@ -154,7 +136,7 @@ if (!thumbnailContainer) {
                     artwork.hasSketchfab,
                     index
                 );
-                fragment.appendChild(thumbnail);
+                thumbnails[index] = thumbnail; // Store at the correct index
 
                 if (!bannerImageSet && artwork.bannerImageUrl) {
                     document.querySelector('.top-container').style.backgroundImage = `url(${artwork.bannerImageUrl})`;
@@ -164,6 +146,14 @@ if (!thumbnailContainer) {
         );
 
         Promise.all(projectPromises).then(() => {
+            // Append thumbnails in the correct order
+            thumbnails.forEach((thumbnail, idx) => {
+                if (thumbnail) {
+                    fragment.appendChild(thumbnail);
+                    console.log(`Appended thumbnail ${idx}`); // Debug order
+                }
+            });
+
             thumbnailContainer.innerHTML = '';
             thumbnailContainer.appendChild(fragment);
             if (!bannerImageSet) {

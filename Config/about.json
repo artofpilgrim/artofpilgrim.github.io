@@ -1,0 +1,88 @@
+{
+    "summary": "With over a decade of experience at Facepunch Studios, I currently serve as Lead Weapon & Prop Artist, overseeing the development of various weapon and prop assets for multiple projects. My areas of expertise span a wide range of disciplines, including weapons, vehicles, environment art, and props, with a particular focus on weapons and props. Throughout my tenure at the company, I have honed my skills and contributed to the artistic excellence of our games, ensuring high-quality visuals and immersive experiences for players.",
+    "recommendations": [
+        {
+            "name": "Matt Isaac",
+            "avatar": "https://files.facepunch.com/tom/1b/nGtxmOinUw.png",
+            "position": "Art Manager @ Facepunch Studios",
+            "date": "May 21, 2024",
+            "quote": "Tom is simply one of the best in the business. Tom is an expert on a wide range of 3D, from vehicles to weapons, and all the workflows that accompany each asset. His work is instantly recognisable for it's quality and style, and has inspired many artists to learn 3D. Tom aslo creates excellent breakdowns and tutorials on all aspects of the 3D pipeline, and is especially well known for carrying the standard for Blender, which alongside Tom's easy and informative approach makes even the highest quality work accessible for an eager student. Matt Isaac, Art Manager at Facepunch"
+        },
+        {
+            "name": "Maxime Lebled",
+            "avatar": "https://files.facepunch.com/tombutters/1b2211b1/100100SticklebackThick.png",
+            "position": "3D Animator & Artist @ Facepunch Studios",
+            "date": "March 04, 2014",
+            "quote": "Thomas was a pleasure to work with! He's a very talented artist with a broad range of skills, both creative and technical. The characters he created ranged from cartoony monsters to gritty realistic humans, and he made every single one of them interesting, appealing, and very adapted for rigging. His prop/object modeling was equally great; Rust's makeshift weapons wouldn't be the same without him. All in all he was an amazing colleague, team member, and artist."
+        },
+        {
+            "name": "Kostas Zarifis",
+            "avatar": "https://files.facepunch.com/tombutters/1b2211b1/100100BandicootPrime.png",
+            "position": "Managing Director @ Rogue Sun",
+            "date": "December 04, 2012",
+            "quote": "Tom joined the team as a Character Art ninja, near the end of the project when we badly needed extra helping hands. Originally Tom would take on some secondary character art tasks to lighten the workload of more senior artists. It quickly became obvious that Tom is one of those artists, who overly talented and skillful for their time working in the industry. As such it wasn't long before Tom was working on critical character art tasks and sharing the workload of senior artists as an equal. With Tom's inherent talent and skills, thirst for further advancing his knowledge and expertise and brilliant communication and work ethic, I have no doubt he will be climbing the industry ladder at a rapid pace. Highly recommended!"
+        },
+        {
+            "name": "Taylor Reynolds",
+            "avatar": "https://files.facepunch.com/tom/1b/zMeX7WNwhG.png",
+            "position": "Lead Character Artist @ Facepunch Studios",
+            "date": "May 22, 2024",
+            "quote": "Having worked with Tom for the better part of a decade, I'm still routinely blown away by the exceptional quality of his work and his unwavering dedication to his craft. Tom is undoubtedly one of the most talented hard surface artists in the industry, and beyond his technical prowess, Tom is also incredibly generous and passionate about sharing his wealth of knowledge with the wider community. Tom's commitment to excellence and his willingness to uplift others make him not just a phenomenal artist, but also an invaluable asset to our field."
+        }
+    ],
+    "skills": [
+        "3D Modelling",
+        "Sculpting",
+        "Texturing",
+        "High Poly Modelling",
+        "UV-Unwrapping",
+        "Retopology",
+        "Hand-painted Texturing",
+        "Weapon Modelling",
+        "Environment Art",
+        "Tileable Materials",
+        "punching faces"
+    ],
+    "software": [
+        "Blender",
+        "3ds Max",
+        "Unity",
+        "Zbrush",
+        "Adobe Photoshop",
+        "Topogun",
+        "Substance 3d Painter",
+        "Marvelous Designer",
+        "Maya",
+        "Marmoset Toolbag"
+    ],
+    "productions": [
+        {
+            "title": "Gnomon Instructor",
+            "company": "Gnomon Workshop",
+            "time": "2024 - present",
+            "thumbnail": "https://files.facepunch.com/tom/1b/gm.jpg",
+            "description": "I created an entire workshop video series for the world renowned Gnomon Workshop. The workshop focuses on creating a realistic camera pistol for FPS games, from reference gathering all the way through to presenting for portfolios and everything in between."
+        },
+        {
+            "title": "Lead Weapon & Prop Artist",
+            "company": "Rust - Facepunch Studios",
+            "time": "2013 - present",
+            "thumbnail": "https://preview.redd.it/2ijba81ch3s31.png?auto=webp&s=e76b0fa4ae65881e6f802ed75ed1d2b69794473a",
+            "description": "As an Lead Weapon & Prop Aritst for Rust, my role involves overseeing and coordinating the efforts of the Weapons and Props art team. I delegate tasks to artists, provide assistance and feedback on prop, weapon, and other asset artwork, and collaborate with leaders from various departments to ensure seamless coordination. Additionally, I guide junior artists in their development and maintain high-quality standards for all prop, weapon, and vehicle assets."
+        },
+        {
+            "title": "Lead Weapon & Prop Artist",
+            "company": "S&box - Facepunch Studios",
+            "time": "2023 - present",
+            "thumbnail": "https://files.facepunch.com/tombutters/1b2211b1/Untitled-1.png",
+            "description": "As an Lead Weapon & Prop Aritst for s&box, my role involves overseeing and coordinating the efforts of the Weapons and Props art team. I delegate tasks to artists, provide assistance and feedback on prop, weapon, and other asset artwork, and collaborate with leaders from various departments to ensure seamless coordination. Additionally, I guide junior artists in their development and maintain high-quality standards for all prop, weapon, and vehicle assets."
+        },
+        {
+            "title": "3D Artist",
+            "company": "Garry's Mod - Facepunch Studios",
+            "time": "2014",
+            "thumbnail": "https://files.facepunch.com/tom/1b/Garry%27s_Mod_logo.svg.png",
+            "description": "As a 3D artist for Garry's Mod, I created a variety of assets, including characters, clothing and props, and optimized them for in-game use working closely with animators to achieve high quality standard."
+        }
+    ]
+}
