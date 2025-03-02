@@ -2,7 +2,7 @@
     --bg-dark: #121212;
     --text-muted: grey;
     --text-dark: #444444;
-    --accent: #edb049; /* Consistent accent color */
+    --accent: #edb049;
     --dot-inactive: #e0e0e0;
     --spacing-sm: 10px;
     --spacing-md: 15px;
@@ -19,9 +19,8 @@
 }
 
 .recommendation {
-    display: none;
     flex-direction: column;
-    gap: var(--spacing-sm); /* Space between header and quote */
+    gap: var(--spacing-sm);
     justify-content: center;
     align-items: flex-start;
     text-align: left;
@@ -29,19 +28,19 @@
     top: 0;
     left: 0;
     width: 100%;
+    opacity: 0; /* Start hidden with opacity */
+    transform: translate-X(100%); /* Start off-screen to the right */
     transition: opacity 0.5s ease, transform 0.5s ease;
     will-change: transform, opacity;
-    visibility: hidden;
-    opacity: 0;
-    font-family: 'Poppins', sans-serif; /* Set font family once */
+    font-family: 'Poppins', sans-serif;
+    pointer-events: none; /* Prevent interaction when not active */
 }
 
 .recommendation.active {
-    display: flex;
-    position: relative;
-    visibility: visible;
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0); /* Slide to center when active */
+    position: relative; /* Stack correctly when active */
+    pointer-events: auto; /* Allow interaction when active */
 }
 
 .recommendation-exit-left {
@@ -67,27 +66,26 @@
 .recommendation-header {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md); /* Space between avatar and details */
+    gap: var(--spacing-md);
 }
 
 .recommendation-avatar {
     width: 80px;
     height: 80px;
     border-radius: 0.5em;
-    /* Margin-right removed; gap handles spacing */
 }
 
 .recommendation-details {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm); /* Space between name, position, date */
+    gap: var(--spacing-sm);
     justify-content: center;
 }
 
 .recommendations-panel {
     background-color: var(--bg-dark);
     border-radius: 5px;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -98,7 +96,7 @@
 
 .recommendation h2 {
     font-size: 20px;
-    margin: 0; /* No extra margins; gap controls spacing */
+    margin: 0;
     color: var(--accent);
 }
 
@@ -117,8 +115,9 @@
 }
 
 .recommendation-quote {
+    padding-top: 10px;
     font-size: 16px;
-    margin: 0; /* Gap handles spacing */
+    margin: 0;
     color: var(--text-muted);
     line-height: 1.5;
 }
@@ -157,9 +156,12 @@
     .recommendation-enter-right,
     .recommendation-exit-right,
     .recommendation-enter-left {
-        transition: none;
         transform: none;
+        opacity: 0; /* Keep hidden but no animation */
+    }
+    .recommendation.active {
         opacity: 1;
+        transform: none;
     }
 }
 
@@ -167,13 +169,12 @@
 @media (max-width: 600px) {
     .recommendation-content {
         justify-content: flex-start;
-        padding-bottom: 60px; /* Ensure dot space */
+        padding-bottom: 60px;
     }
 
     .recommendation-avatar {
         width: 80px;
         height: 80px;
-        /* Margins removed; gap handles spacing */
     }
 
     .recommendation h2 {
@@ -201,12 +202,11 @@
         width: 10px;
     }
 
-    /* Adjust gaps for smaller screens */
     .recommendation-header {
         gap: var(--spacing-sm);
     }
 
     .recommendation-details {
-        gap: 5px; /* Smaller gap for tighter spacing */
+        gap: 5px;
     }
 }

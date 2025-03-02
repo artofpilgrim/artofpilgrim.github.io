@@ -104,10 +104,26 @@ async function loadRecommendations(data) {
     function showRecommendation(index, direction) {
         if (isTransitioning || index === currentIndex) return;
         isTransitioning = true;
-
+    
         const current = recommendationsElements[currentIndex];
         const next = recommendationsElements[index];
-
+    
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+        if (prefersReducedMotion) {
+            // Skip animation for reduced motion
+            current.classList.remove('active');
+            current.setAttribute('aria-hidden', 'true');
+            next.classList.add('active');
+            next.setAttribute('aria-hidden', 'false');
+            currentIndex = index;
+            isTransitioning = false;
+            adjustHeight();
+            announcer.textContent = `Showing recommendation ${index + 1} of ${recommendationsElements.length}`;
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            return;
+        }
+    
         if (direction === 'left') {
             current.classList.add('recommendation-exit-left');
             next.classList.add('recommendation-enter-right');
@@ -115,7 +131,7 @@ async function loadRecommendations(data) {
             current.classList.add('recommendation-exit-right');
             next.classList.add('recommendation-enter-left');
         }
-
+    
         next.addEventListener('transitionend', () => {
             current.classList.remove('active', 'recommendation-exit-left', 'recommendation-exit-right');
             next.classList.remove('recommendation-enter-left', 'recommendation-enter-right');
@@ -127,7 +143,7 @@ async function loadRecommendations(data) {
             adjustHeight();
             announcer.textContent = `Showing recommendation ${index + 1} of ${recommendationsElements.length}`;
         }, { once: true });
-
+    
         setTimeout(() => {
             if (isTransitioning) {
                 console.warn('Transitionend didn’t fire, forcing completion');
@@ -141,7 +157,7 @@ async function loadRecommendations(data) {
                 adjustHeight();
             }
         }, 600);
-
+    
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
 
