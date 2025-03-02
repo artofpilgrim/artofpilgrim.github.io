@@ -1,0 +1,172 @@
+{
+  "title": "Japanese Doryu 2-16: Gnomon Workshop",
+  "description": "It was a real pleasure creating this for Gnomon Workshop. Shocked they asked me to begin with! I had a choice between a weapon or a prop so why not both? The Doryu is such an interesting asset to make and it combined my love for photography with my love of making guns perfectly. It has such an interesting history. The workshop is live and will take you through each step from gathering reference to rendering and everything in-between. You can find it here: https://www.thegnomonworkshop.com/tutorials/creating-a-hero-weapon-for-games There's also a 20% off discount code:TOMB20 on either first month of a monthly sub or a year sub. I really hope it proves useful, as i loved making it! Peace. Arms by Alex Khaliman, with the box and cardboard from Megascans.",
+  "tags": [
+    "Blender",
+    "Zbrush",
+    "Marmoset Toolbag",
+    "Substance Painter"
+  ],
+  "htmlFileName": "Doryu.html",
+  "thumbnail": "https://files.facepunch.com/tom/1b/2%20-%20Untitled.jpg",
+  "media": [
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/606/large/pilgrim-1.jpg?1719564672",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/614/large/pilgrim-2.jpg?1719564682",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/622/large/pilgrim-3.jpg?1719564694",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/628/large/pilgrim-4.jpg?1719564704",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/635/large/pilgrim-5.jpg?1719564716",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/639/large/pilgrim-6.jpg?1719564728",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/646/large/pilgrim-7.jpg?1719564738",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/666/large/pilgrim-9.jpg?1719564763",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/671/large/pilgrim-10.jpg?1719564774",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/681/large/pilgrim-11.jpg?1719564783",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/690/large/pilgrim-12.jpg?1719564793",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/700/large/pilgrim-13.jpg?1719564803",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/704/large/pilgrim-14.jpg?1719564814",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/710/large/pilgrim-15.jpg?1719564824",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/717/large/pilgrim-16.jpg?1719564836",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/722/large/pilgrim-17.jpg?1719564847",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/728/large/pilgrim-19.jpg?1719564860",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/732/large/pilgrim-20.jpg?1719564871",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/739/large/pilgrim-21.jpg?1719564883",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/744/large/pilgrim-22.jpg?1719564898",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/753/large/pilgrim-24.jpg?1719564911",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/762/large/pilgrim-hp.jpg?1719564922",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/770/large/pilgrim-hp-001.jpg?1719564930",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/077/483/773/large/pilgrim-hp-002.jpg?1719564939",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/776/large/pilgrim-hp-003.jpg?1719564947",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/483/782/large/pilgrim-hp-004.jpg?1719564957",
+      "description": ""
+    },
+    {
+      "type": "image",
+      "url": "https://cdna.artstation.com/p/assets/images/images/077/484/582/large/pilgrim-24-06-28-pureref-p72plqkp7j.jpg?1719566607",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://cdn.artstation.com/p/video_sources/002/053/735/doryubox.mp4",
+      "description": ""
+    },
+    {
+      "type": "video",
+      "url": "https://cdn.artstation.com/p/video_sources/002/053/740/doryuturntable-1.mp4",
+      "description": ""
+    }
+  ],
+  "stats": {
+    "Triangles": {
+      "value": "34,000",
+      "info": "Approx"
+    },
+    "Materials": {
+      "value": "3",
+      "info": "Rear Section / Front Section / Camera"
+    },
+    "Texture Size": "2048 x 2048",
+    "Workflow": "PBR Spec/Gloss",
+    "Target Engine": "Unity"
+  }
+}
