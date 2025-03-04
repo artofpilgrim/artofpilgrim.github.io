@@ -124,7 +124,7 @@
 
 .recommendation-dots {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     padding: var(--spacing-sm);
     justify-content: center;
 }
