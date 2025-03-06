@@ -97,6 +97,32 @@ async function loadRecommendations(data) {
         return;
     }
 
+    // Set fixed height based on tallest recommendation
+    function setFixedHeight() {
+        let maxHeight = 0;
+        recommendationsElements.forEach(rec => {
+            // Temporarily make visible to measure natural height
+            const originalDisplay = rec.style.display;
+            const originalOpacity = rec.style.opacity;
+            const originalPosition = rec.style.position;
+            rec.style.display = 'block';
+            rec.style.opacity = '1';
+            rec.style.position = 'relative';
+            const height = rec.getBoundingClientRect().height;
+            maxHeight = Math.max(maxHeight, height);
+            // Reset styles
+            rec.style.display = originalDisplay;
+            rec.style.opacity = originalOpacity;
+            rec.style.position = originalPosition;
+        });
+        // Set fixed height with padding
+        recommendationContent.style.height = `${maxHeight + 60}px`;
+        console.log(`Set fixed height to ${maxHeight + 60}px`);
+    }
+
+    // Call once on initialization
+    setFixedHeight();
+
     let currentIndex = 0;
     let isTransitioning = false;
     let autoplay = setInterval(() => showRecommendation((currentIndex + 1) % recommendationsElements.length, 'left'), 5000);
@@ -104,26 +130,24 @@ async function loadRecommendations(data) {
     function showRecommendation(index, direction) {
         if (isTransitioning || index === currentIndex) return;
         isTransitioning = true;
-    
+
         const current = recommendationsElements[currentIndex];
         const next = recommendationsElements[index];
-    
+
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
         if (prefersReducedMotion) {
-            // Skip animation for reduced motion
             current.classList.remove('active');
             current.setAttribute('aria-hidden', 'true');
             next.classList.add('active');
             next.setAttribute('aria-hidden', 'false');
             currentIndex = index;
             isTransitioning = false;
-            adjustHeight();
             announcer.textContent = `Showing recommendation ${index + 1} of ${recommendationsElements.length}`;
             dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
             return;
         }
-    
+
         if (direction === 'left') {
             current.classList.add('recommendation-exit-left');
             next.classList.add('recommendation-enter-right');
@@ -131,7 +155,7 @@ async function loadRecommendations(data) {
             current.classList.add('recommendation-exit-right');
             next.classList.add('recommendation-enter-left');
         }
-    
+
         next.addEventListener('transitionend', () => {
             current.classList.remove('active', 'recommendation-exit-left', 'recommendation-exit-right');
             next.classList.remove('recommendation-enter-left', 'recommendation-enter-right');
@@ -140,10 +164,9 @@ async function loadRecommendations(data) {
             next.setAttribute('aria-hidden', 'false');
             currentIndex = index;
             isTransitioning = false;
-            adjustHeight();
             announcer.textContent = `Showing recommendation ${index + 1} of ${recommendationsElements.length}`;
         }, { once: true });
-    
+
         setTimeout(() => {
             if (isTransitioning) {
                 console.warn('Transitionend didn’t fire, forcing completion');
@@ -154,10 +177,9 @@ async function loadRecommendations(data) {
                 next.setAttribute('aria-hidden', 'false');
                 currentIndex = index;
                 isTransitioning = false;
-                adjustHeight();
             }
         }, 600);
-    
+
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
 
@@ -221,20 +243,41 @@ async function loadRecommendations(data) {
         autoplay = setInterval(() => showRecommendation((currentIndex + 1) % recommendationsElements.length, 'left'), 5000);
     });
 
-    function adjustHeight() {
-        const activeRecommendation = recommendationContent.querySelector('.recommendation.active');
-        if (activeRecommendation) {
-            const activeHeight = activeRecommendation.getBoundingClientRect().height;
-            recommendationContent.style.minHeight = `${activeHeight + 60}px`;
+    // Handle tab visibility changes
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            clearInterval(autoplay);
+            console.log('Tab hidden: Pausing carousel');
+        } else {
+            console.log('Tab visible: Resuming carousel');
+            resetCarousel();
+            autoplay = setInterval(() => showRecommendation((currentIndex + 1) % recommendationsElements.length, 'left'), 5000);
         }
     }
 
-    const debouncedAdjustHeight = throttle(adjustHeight, 200);
-    window.addEventListener('resize', debouncedAdjustHeight);
-    adjustHeight();
+    function resetCarousel() {
+        recommendationsElements.forEach((rec, index) => {
+            if (index === currentIndex) {
+                rec.classList.add('active');
+                rec.setAttribute('aria-hidden', 'false');
+            } else {
+                rec.classList.remove('active');
+                rec.setAttribute('aria-hidden', 'true');
+            }
+            rec.classList.remove(
+                'recommendation-exit-left',
+                'recommendation-exit-right',
+                'recommendation-enter-left',
+                'recommendation-enter-right'
+            );
+        });
+        isTransitioning = false;
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     const cleanup = () => {
-        window.removeEventListener('resize', debouncedAdjustHeight);
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
         dotsContainer.removeEventListener('click', handleDotClick);
         recommendationContent.removeEventListener('keydown', handleKeydown);
         recommendationContent.removeEventListener('touchstart', handleTouchStart);
@@ -245,6 +288,7 @@ async function loadRecommendations(data) {
     };
     window.addEventListener('unload', cleanup);
 }
+
 
 function loadSkillsAndSoftware(data) {
     const softwareContainer = document.querySelector('#software-panel .software-tag-container');
