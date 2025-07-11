@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log('DOM loaded');
-
     const config = {
         articlesListPath: './Config/articles.json',
         articlesFolder: './Articles',
@@ -11,17 +9,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const articlesContainer = document.querySelector('.articles-container');
 
     let articles = [];
-
+    const contentCache = new Map();
 
     const loadArticles = async () => {
-        console.log('Loading articles');
         articlesContainer.innerHTML = '<div class="spinner"></div>';
 
         try {
             const response = await fetch(config.articlesListPath);
             if (!response.ok) throw new Error(`Failed to fetch articles.json: ${response.status}`);
             articles = await response.json();
-            console.log('Articles loaded:', articles);
 
             if (!Array.isArray(articles) || !articles.length) {
                 articlesContainer.innerHTML = '<p>No articles found.</p>';
@@ -29,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-            console.log('Sorted articles:', articles.map(a => `${a.slug} (${a.date})`));
 
             await renderArticleList();
         } catch (error) {
@@ -39,7 +34,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     const renderArticleList = async () => {
-        console.log('Rendering article list');
         const fragment = document.createDocumentFragment();
 
         const cards = await Promise.all(articles.map(article => createArticleCard(article)));
@@ -58,12 +52,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         articlesContainer.innerHTML = '';
         articlesContainer.appendChild(fragment);
         articlesContainer.classList.add('list-view');
-        console.log('List rendered');
     };
 
     const createArticleCard = async (article) => {
         const { slug, title, thumbnail, date, tags } = article;
-        const { content, readingTime } = await loadArticleContent(slug);
+        const { content, readingTime } = await getArticleContent(slug);
         const card = document.createElement('article');
         card.className = 'article-card';
         card.tabIndex = 0;
@@ -86,7 +79,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </div>
         `;
-        console.log(`Created card for ${slug} with reading time: ${readingTime} minutes`);
         return card;
     };
 
@@ -97,14 +89,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             : firstParagraph;
     };
 
-    const loadArticleContent = async (slug) => {
+    const getArticleContent = async (slug) => {
+        if (contentCache.has(slug)) {
+            return contentCache.get(slug);
+        }
         try {
             const response = await fetch(`${config.articlesFolder}/${slug}/article.txt`);
             if (!response.ok) throw new Error(`Failed to fetch ${slug}/article.txt: ${response.status}`);
             const text = await response.text();
             const [, content] = text.split('---');
             const readingTime = calculateReadingTime(content || 'No content');
-            return { content, readingTime };
+            const result = { content, readingTime };
+            contentCache.set(slug, result);
+            return result;
         } catch (error) {
             console.error(`Error fetching content for ${slug}:`, error);
             return { content: 'Error loading content', readingTime: 1 };
@@ -112,11 +109,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     const showFullArticle = async (article) => {
-        console.log(`Showing full article: ${article.slug}`);
         articlesContainer.innerHTML = '<div class="spinner"></div>';
 
         try {
-            const { content } = await loadArticleContent(article.slug);
+            const { content } = await getArticleContent(article.slug);
             articlesContainer.innerHTML = `
                 <div class="article-full-view">
                     <button class="back-button">Back to Articles</button>
@@ -176,6 +172,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const processLine = (line) => {
         if (!line) return '';
+        line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        line = line.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        line = line.replace(/`(.*?)`/g, '<code>$1</code>');
         if (line.startsWith('## ')) return `<h2>${line.slice(3)}</h2>`;
         if (line.startsWith('# ')) return `<h1>${line.slice(2)}</h1>`;
         if (line.match(/(https?:\/\/[^\s]+)/g)) {
@@ -185,7 +184,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (url.match(/(youtube\.com|youtu\.be)/)) {
                     let videoId = url.split('v=')[1] || url.split('youtu.be/')[1];
                     if (videoId?.includes('&')) videoId = videoId.split('&')[0];
-                    // No inline width or height attributes
                     return `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 }
                 return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
@@ -193,7 +191,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         return line;
     };
-
 
     await loadArticles();
 });

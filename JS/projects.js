@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const mediaElement = document.createElement('div');
         mediaElement.className = 'media-item';
         mediaElement.role = 'figure';
+        let elementCreated = false;
         switch (type) {
             case 'image':
                 const img = document.createElement('img');
@@ -109,52 +110,54 @@ document.addEventListener('DOMContentLoaded', async () => {
                 img.alt = description || '';
                 img.loading = 'lazy';
                 mediaElement.appendChild(img);
+                elementCreated = true;
                 break;
-                case 'image-comparison':
-                    const imgContainer = document.createElement('div');
-                    imgContainer.className = 'img-container';
-                    const img1 = document.createElement('img');
-                    img1.src = urls[0];
-                    img1.className = 'image-1';
-                    img1.alt = 'Primary image';
-                    img1.loading = 'lazy';
-                    imgContainer.appendChild(img1);
-                    const img2 = document.createElement('img');
-                    img2.src = urls[1];
-                    img2.className = 'image-2';
-                    img2.alt = 'Secondary image';
-                    img2.loading = 'lazy';
-                    imgContainer.appendChild(img2);
-                    const sliderContainer = document.createElement('div');
-                    sliderContainer.className = 'slider-container';
-                    const sliderLine = document.createElement('div');
-                    sliderLine.className = 'slider-line';
-                    const slider = document.createElement('input');
-                    slider.type = 'range';
-                    slider.min = '0';
-                    slider.max = '100';
-                    slider.value = '50';
-                    slider.className = 'image-slider';
-                    slider.setAttribute('aria-label', 'Image comparison slider');
+            case 'image-comparison':
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'img-container';
+                const img1 = document.createElement('img');
+                img1.src = urls[0];
+                img1.className = 'image-1';
+                img1.alt = 'Primary image';
+                img1.loading = 'lazy';
+                imgContainer.appendChild(img1);
+                const img2 = document.createElement('img');
+                img2.src = urls[1];
+                img2.className = 'image-2';
+                img2.alt = 'Secondary image';
+                img2.loading = 'lazy';
+                imgContainer.appendChild(img2);
+                const sliderContainer = document.createElement('div');
+                sliderContainer.className = 'slider-container';
+                const sliderLine = document.createElement('div');
+                sliderLine.className = 'slider-line';
+                const slider = document.createElement('input');
+                slider.type = 'range';
+                slider.min = '0';
+                slider.max = '100';
+                slider.value = '50';
+                slider.className = 'image-slider';
+                slider.setAttribute('aria-label', 'Image comparison slider');
 
-                    // Set initial styles directly
-                    img2.style.clipPath = `inset(0 0 0 50%)`;
-                    sliderLine.style.left = `calc(50% - 1px)`;
+                // Set initial styles directly
+                img2.style.clipPath = `inset(0 0 0 50%)`;
+                sliderLine.style.left = `calc(50% - 1px)`;
 
-                    let rafId;
-                    slider.addEventListener('input', () => {
-                        if (rafId) cancelAnimationFrame(rafId); // Cancel previous frame to avoid buildup
-                        rafId = requestAnimationFrame(() => {
-                        img2.style.clipPath = `inset(0 0 0 ${slider.value}%)`;
-                        sliderLine.style.left = `calc(${slider.value}% - 1px)`;
-                        });
+                let rafId;
+                slider.addEventListener('input', () => {
+                    if (rafId) cancelAnimationFrame(rafId); // Cancel previous frame to avoid buildup
+                    rafId = requestAnimationFrame(() => {
+                    img2.style.clipPath = `inset(0 0 0 ${slider.value}%)`;
+                    sliderLine.style.left = `calc(${slider.value}% - 1px)`;
                     });
+                });
 
-                    sliderContainer.appendChild(sliderLine);
-                    sliderContainer.appendChild(slider);
-                    mediaElement.appendChild(imgContainer);
-                    mediaElement.appendChild(sliderContainer);
-                    break;
+                sliderContainer.appendChild(sliderLine);
+                sliderContainer.appendChild(slider);
+                mediaElement.appendChild(imgContainer);
+                mediaElement.appendChild(sliderContainer);
+                elementCreated = true;
+                break;
             case 'video':
                 const video = document.createElement('video');
                 video.src = url;
@@ -163,6 +166,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 video.title = 'Video content';
                 video.loading = 'lazy';
                 mediaElement.appendChild(video);
+                elementCreated = true;
                 break;
             case 'youtube':
                 mediaElement.className += ' responsive-iframe-container';
@@ -174,6 +178,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 iframe.loading = 'lazy';
                 iframe.title = 'YouTube video';
                 mediaElement.appendChild(iframe);
+                elementCreated = true;
                 break;
             case 'sketchfab':
                 mediaElement.className += ' responsive-iframe-container';
@@ -185,6 +190,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 sketchfabIframe.loading = 'lazy';
                 sketchfabIframe.title = 'Sketchfab model';
                 mediaElement.appendChild(sketchfabIframe);
+                elementCreated = true;
                 break;
             case 'mview':
                 mediaElement.className += ' marmoset-item';
@@ -195,17 +201,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                 mviewIframe.loading = 'lazy';
                 mviewIframe.title = 'Marmoset Viewer';
                 mediaElement.appendChild(mviewIframe);
+                elementCreated = true;
                 break;
             default:
-                return null;
+                const fallback = document.createElement('p');
+                fallback.textContent = `Unsupported media type: ${type}`;
+                mediaElement.appendChild(fallback);
+                elementCreated = true;
+                break;
         }
-        if (description) {
+        if (elementCreated && description) {
             const descElement = document.createElement('p');
             descElement.className = 'media-description';
             descElement.textContent = description;
             mediaElement.appendChild(descElement);
         }
-        return mediaElement;
+        return elementCreated ? mediaElement : null;
     };
 
     const renderStats = (stats) => {
@@ -244,13 +255,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const tooltip = statElement.querySelector('.tooltip');
                 infoIcon.addEventListener('mouseover', (e) => {
                     tooltip.style.display = 'block';
-                    positionTooltip(e, tooltip);
+                    positionTooltip(e, tooltip, infoIcon);
                 });
-                infoIcon.addEventListener('mousemove', (e) => positionTooltip(e, tooltip));
+                infoIcon.addEventListener('mousemove', (e) => positionTooltip(e, tooltip, infoIcon));
                 infoIcon.addEventListener('mouseout', () => tooltip.style.display = 'none');
                 infoIcon.addEventListener('focus', (e) => {
                     tooltip.style.display = 'block';
-                    positionTooltip(e, tooltip);
+                    positionTooltip(e, tooltip, infoIcon);
                 });
                 infoIcon.addEventListener('blur', () => tooltip.style.display = 'none');
             }
@@ -260,41 +271,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.appendChild(fragment);
     };
 
-    const positionTooltip = (event, tooltip) => {
-        const rect = tooltip.getBoundingClientRect();
-    
-        // Calculate preferred top position (above the cursor)
-        let top = event.clientY - rect.height - 10;
-    
-        // If it doesn’t fit above, place it below
-        if (top < 0) {
-            top = event.clientY + 10;
+    const positionTooltip = (event, tooltip, icon) => {
+        const iconRect = icon.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // Prefer right of icon
+        let left = iconRect.right + 10;
+        let top = iconRect.top + (iconRect.height / 2) - (tooltipRect.height / 2);
+
+        // If overflows right, place left
+        if (left + tooltipRect.width > viewportWidth) {
+            left = iconRect.left - tooltipRect.width - 10;
         }
-    
-        // Ensure it doesn’t overflow the bottom
-        if (top + rect.height > window.innerHeight) {
-            top = window.innerHeight - rect.height;
-        }
-    
-        // Ensure top is not negative (e.g., if tooltip is taller than window)
+
+        // Adjust vertical if overflows top or bottom
         if (top < 0) {
             top = 0;
+        } else if (top + tooltipRect.height > viewportHeight) {
+            top = viewportHeight - tooltipRect.height;
         }
-    
-        // Calculate left position
-        let left = event.clientX;
-    
-        // Ensure it doesn’t overflow the right
-        if (left + rect.width > window.innerWidth) {
-            left = window.innerWidth - rect.width;
+
+        // Fallback to above or below if horizontal doesn't fit
+        if (left < 0 || left + tooltipRect.width > viewportWidth) {
+            left = iconRect.left + (iconRect.width / 2) - (tooltipRect.width / 2);
+            if (event.clientY > viewportHeight / 2) {
+                top = iconRect.top - tooltipRect.height - 10; // Above
+            } else {
+                top = iconRect.bottom + 10; // Below
+            }
         }
-    
-        // Ensure it doesn’t overflow the left
-        if (left < 0) {
-            left = 0;
-        }
-    
-        // Apply the calculated position
+
         tooltip.style.top = `${top}px`;
         tooltip.style.left = `${left}px`;
     };
@@ -308,14 +316,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const projectData = await fetchData(`../${newProject}/project.json`, `Failed to fetch ${newProject} data`);
         const htmlFileName = projectData.htmlFileName || 'index.html';
         window.location.href = `../${newProject}/` + htmlFileName;
-    };
-
-    const debounce = (func, wait) => {
-        let timeout;
-        return (...args) => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func(...args), wait);
-        };
     };
 
     const setupEventListeners = () => {
@@ -340,7 +340,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const init = async () => {
         projects = await fetchProjects();
-        console.log('Fetched projects:', projects); // Add this line
         if (!projects.length) console.warn('No projects found');
         setupEventListeners();
         await fetchProjectData();

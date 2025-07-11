@@ -12,22 +12,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.user-name-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.user-name-link:hover {
-  color: #edb049; /* Example hover color */
-}
-
-.user-info-panel h1 {
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 5px;
-  color: #edb049;
+  & .user-name-link {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      color: var(--accent); /* Use variable for consistency */
+    }
+  }
+  & h1 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: var(--accent);
+  }
 }
 
 .profile-pic {
@@ -45,17 +42,15 @@
   transition: opacity 0.5s;
   margin-bottom: 10px;
   margin-top: 5px;
-  color: grey !important; 
-}
-
-.social-icons a {
-  color: #272727 !important;
-  font-size: 24px;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #edb049 !important;;
+  color: var(--text-muted) !important; 
+  & a {
+    color: var(--text-muted) !important;
+    font-size: 24px;
+    transition: color 0.3s;
+    &:hover {
+      color: var(--accent) !important;
+    }
+  }
 }
 
 .user-location-container {
@@ -63,13 +58,36 @@
   margin-top: 5px;
   align-items: center;
   gap: 5px; /* Adjust the gap between the icon and the text */
+  & .material-symbols-outlined {
+    font-size: 1.2em; /* Adjust the size of the icon */
+    color: var(--text-muted) !important; 
+  }
+  & h2 {
+    margin: 0;
+  }
 }
 
-.material-symbols-outlined {
-  font-size: 1.2em; /* Adjust the size of the icon */
-  color: grey !important; 
+/* Light Mode Adjustments */
+@media (prefers-color-scheme: light) {
+  .social-icons {
+    color: var(--text-muted) !important;
+    & a {
+      color: var(--text-muted) !important;
+    }
+  }
+  .user-location-container .material-symbols-outlined {
+    color: var(--text-muted) !important;
+  }
 }
 
-.user-location-container h2 {
-  margin: 0;
+/* Responsive Design */
+@media (max-width: 600px) {
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+  .social-icons {
+    gap: 0.8rem;
+    font-size: 20px;
+  }
 }

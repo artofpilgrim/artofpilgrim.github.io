@@ -117,7 +117,6 @@ async function loadRecommendations(data) {
         });
         // Set fixed height with padding
         recommendationContent.style.height = `${maxHeight + 60}px`;
-        console.log(`Set fixed height to ${maxHeight + 60}px`);
     }
 
     // Call once on initialization
@@ -167,19 +166,6 @@ async function loadRecommendations(data) {
             announcer.textContent = `Showing recommendation ${index + 1} of ${recommendationsElements.length}`;
         }, { once: true });
 
-        setTimeout(() => {
-            if (isTransitioning) {
-                console.warn('Transitionend didn’t fire, forcing completion');
-                current.classList.remove('active', 'recommendation-exit-left', 'recommendation-exit-right');
-                next.classList.remove('recommendation-enter-left', 'recommendation-enter-right');
-                current.setAttribute('aria-hidden', 'true');
-                next.classList.add('active');
-                next.setAttribute('aria-hidden', 'false');
-                currentIndex = index;
-                isTransitioning = false;
-            }
-        }, 600);
-
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
 
@@ -226,7 +212,7 @@ async function loadRecommendations(data) {
             showRecommendation(newIndex, diffX > 0 ? 'left' : 'right');
             isSwiping = false;
         }
-    }, 100);
+    }, 200);
 
     const handleTouchEnd = () => (isSwiping = false);
     const handleTouchCancel = () => (isSwiping = false);
@@ -247,9 +233,7 @@ async function loadRecommendations(data) {
     function handleVisibilityChange() {
         if (document.hidden) {
             clearInterval(autoplay);
-            console.log('Tab hidden: Pausing carousel');
         } else {
-            console.log('Tab visible: Resuming carousel');
             resetCarousel();
             autoplay = setInterval(() => showRecommendation((currentIndex + 1) % recommendationsElements.length, 'left'), 5000);
         }

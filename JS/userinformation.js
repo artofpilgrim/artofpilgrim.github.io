@@ -30,11 +30,31 @@ const config = {
     }
 };
 
-// Sanitize text to prevent XSS
+// Sanitize text to prevent XSS by escaping HTML entities
 function sanitizeText(text) {
-    return text;
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        "/": '&#x2F;',
+    };
+    return text.replace(/[&<>"'/]/ig, (match) => map[match]);
 }
 
+// Sanitize URLs to prevent malicious protocols
+function sanitizeUrl(url) {
+    try {
+        const parsed = new URL(url);
+        if (!['http:', 'https:', 'mailto:'].includes(parsed.protocol)) {
+            return '#';
+        }
+        return url;
+    } catch {
+        return '#';
+    }
+}
 
 // Fetch user data with error handling
 async function fetchUserData() {
@@ -81,7 +101,7 @@ function createUserInfoPanel(data) {
 
     // Profile Picture
     const img = document.createElement('img');
-    img.src = sanitizeText(data.profilePicUrl);
+    img.src = sanitizeUrl(data.profilePicUrl);
     img.alt = 'Profile Picture';
     img.className = 'profile-pic';
     userInfoPanel.appendChild(img);
@@ -119,10 +139,11 @@ function createUserInfoPanel(data) {
     data.socials.forEach(social => {
         const socialType = Object.keys(config.socialIconMap).find(key => social.url.includes(key)) || 'email';
         const iconClass = config.socialIconMap[socialType];
-        const url = socialType === 'email' ? `mailto:${social.url}` : social.url;
+        const rawUrl = socialType === 'email' ? `mailto:${social.url}` : social.url;
+        const safeUrl = sanitizeUrl(rawUrl);
         if (iconClass) {
             const a = document.createElement('a');
-            a.href = sanitizeText(url);
+            a.href = safeUrl;
             a.target = '_blank';
             a.setAttribute('aria-label', socialType); // Accessibility
             const icon = document.createElement('i');

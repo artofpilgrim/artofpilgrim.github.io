@@ -3,10 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const plusButton = document.getElementById('plus-button');
     const minusButton = document.getElementById('minus-button');
 
-    // Retrieve the saved minWidth from localStorage or set default value
-    let minWidth = parseInt(localStorage.getItem('thumbnailMinWidth')) || 250;
+    // Retrieve and validate the saved minWidth from localStorage
+    let minWidth = parseInt(localStorage.getItem('thumbnailMinWidth'));
+    if (isNaN(minWidth) || minWidth < 100 || minWidth > 500) {
+        minWidth = 250;
+    }
 
-    // Apply the initial size from localStorage
+    // Apply the initial size
     updateThumbnailSize();
 
     plusButton.addEventListener('click', () => {

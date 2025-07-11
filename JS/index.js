@@ -62,7 +62,7 @@ function fetchProjectData(projectName) {
             return response.json();
         })
         .then(projectData => {
-            const { title, thumbnail, htmlFileName, media } = projectData;
+            const { title, thumbnail, htmlFileName, media, bannerImageUrl } = projectData;
             const hasMultipleImages = media.filter(item => item.type === 'image').length > 1;
             const hasVideo = media.some(item => item.type === 'video');
             const hasYouTube = media.some(item => item.type === 'youtube');
@@ -75,7 +75,8 @@ function fetchProjectData(projectName) {
                 hasMultipleImages,
                 hasVideo,
                 hasYouTube,
-                hasSketchfab
+                hasSketchfab,
+                bannerImageUrl
             };
         })
         .catch(error => {
@@ -147,10 +148,9 @@ if (!thumbnailContainer) {
 
         Promise.all(projectPromises).then(() => {
             // Append thumbnails in the correct order
-            thumbnails.forEach((thumbnail, idx) => {
+            thumbnails.forEach(thumbnail => {
                 if (thumbnail) {
                     fragment.appendChild(thumbnail);
-                    console.log(`Appended thumbnail ${idx}`); // Debug order
                 }
             });
 
